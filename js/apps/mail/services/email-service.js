@@ -45,4 +45,5 @@ function changeToIsRead(emailId){
         return email.id === emailId
     })
     emailIsRead.isRead = true;
+    console.log(emailIsRead.isRead);
 }

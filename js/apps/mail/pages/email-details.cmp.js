@@ -4,11 +4,12 @@ export default {
     name: 'emailDetails',
     template: `
     <section class="email-details-container">
-        <h4>Subject: {{email.subject}}</h3>
+        <h4>Subject: {{email.subject}}</h4>
         <h3>From: {{email.senderName}} <span>Sent At: {{email.sentAt}}</span></h3>
         <div class="email-body">
-        <p>{{email.body}}</p>
-    </div>
+            <p>{{email.body}}</p>
+        </div>
+    </section>
     `,
     data() {
         return {
