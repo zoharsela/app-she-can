@@ -5,8 +5,8 @@ export default {
     <section class="email-preview" :class="{read: email.isRead, unread: !email.isRead}" @click.stop="open">
         <div>
            <h4>{{email.senderName}} | <span>{{email.subject}}</span></h4>
-           <i v-if="!email.isRead" class="envelope"></i>
-           <i v-if="email.isRead" class="envelope"></i>
+           <i v-if="!email.isRead" class="fas fa-envelope"></i>
+           <i v-if="email.isRead" class="fas fa-envelope-open-text"></i>
         </div>
         <div v-if="isOpen" class="open">
             <h3>{{email.subject}}</h3>
