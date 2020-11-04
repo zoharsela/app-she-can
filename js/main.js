@@ -1,4 +1,4 @@
-// import bookApp from'../pages/book-app.js'
+import emailApp from'../js/apps/mail/pages/email-app.cmp.js'
 import navBar from'./cmps/nav.cmp.js'
 import { myRouter } from './routes.js'
 // import userMsg from '../cmp/user-msg.js'
@@ -10,9 +10,8 @@ const options = {
     template: `
         <section>
             <main>
-                <nav-bar></nav-bar>
-                <router-view>
-
+            <nav-bar></nav-bar>
+            <router-view>
             </router-view>
             </main>
             <!-- <user-msg/> -->
@@ -21,7 +20,8 @@ const options = {
     components: {
         // appHeader,
         // userMsg,
-        navBar
+        navBar,
+        emailApp
     }
 }
 
