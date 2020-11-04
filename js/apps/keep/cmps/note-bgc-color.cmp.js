@@ -13,4 +13,14 @@ export default {
                 <button class="color-pick pointer" value="#82e8cd" style="background-color: #82e8cd">.</button>
                 </section>
                 `,
+  data() {
+    return {
+      color: null,
+    }
+  },
+  methods: {
+    emitColor() {
+      this.$emit('color', { ...this.color });
+    },
+  }
 }

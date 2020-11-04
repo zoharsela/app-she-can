@@ -11,6 +11,7 @@
 /* SheKeep cmps */
 
 @import 'apps/keep/color-picker.cmp.css';
+@import 'apps/keep/keep-app.cmp.css';
 @import 'apps/keep/notes-preview.cmp.css';
 @import 'apps/keep/add-note.cmp.css';
 /* general, temporary, fonts are not decided yet but will be nicer to watch */
@@ -56,6 +57,13 @@ body {
     cursor: pointer;
 }
 
+.button-reset {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    display: inline;
+}
+
 /* restarters */
 
 li {
@@ -69,4 +77,10 @@ a {
 
 ul {
     padding: 0;
+}
+
+input {
+    font-family: Roboto;
+    border: 1px solid rgb(164, 164, 164);
+    padding: 0.1rem;
 }
