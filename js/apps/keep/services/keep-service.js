@@ -4,15 +4,14 @@ export const keepService = {
     getNoteById,
     getNotes,
     addNote,
-    removeNote,
+    deleteNote,
     updateNote
 }
 
 const KEY = 'notesDB'
-var gNotes;
-var DEFAULT_NOTES = [{
+var gNotes = [{
     id: utilService.makeId(),
-    type: "NoteText",
+    type: "noteText",
     isPinned: true,
     createdAt: 1604486514773,
     info: {
@@ -22,47 +21,43 @@ var DEFAULT_NOTES = [{
 },
 {
     id: utilService.makeId(),
-    type: "NoteImg",
+    type: "noteImg",
     isPinned: false,
     createdAt: 1604486494659,
     info: {
-        url: "http://some-img/me",
+        url: "https://images.unsplash.com/photo-1516636052745-e142aecffd0c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80",
         title: "Me playing Mi"
     },
     style: {
-        backgroundColor: "#00d"
+        backgroundColor: "#ffd"
     }
 },
 {
-    type: "NoteTodos",
     id: utilService.makeId(),
+    type: "noteTodos",
     isPinned: false,
     createdAt: 1604486482321,
     info: {
-        title: "How was it:", todos: [
+        title: "How was it:",
+        todos: [
             { txt: "Do that", doneAt: null },
             { txt: "Do this", doneAt: 187111111 }]
     }
 },
 {
-    type: "NoteVideo",
+    type: "noteVideo",
     id: utilService.makeId(),
     isPinned: true,
     createdAt: 1604486467965,
     info: {
-        url: "https://www.youtube.com/watch?v=Ffz_8eXyfxU",
+        url: "https://www.youtube.com/embed/28jL8w_9M1U",
         title: "Leonard Cohen Greatest Hits"
     }
 }
 ];
 
 function getNotes() {
-    let notes = utilService.loadFromStorage(KEY);
-    if (!notes || !notes.length) {
-        gNotes = DEFAULT_NOTES
-        saveNotes();
-    }
-    return Promise.resolve(notes)
+    return Promise.resolve(gNotes)
 }
 
 function addNote(note) {
@@ -70,10 +65,11 @@ function addNote(note) {
     saveNotes()
 }
 
-function removeNote(id) {
+function deleteNote(id) {
     const noteIdx = getNoteIdx(id)
     gNotes.splice(noteIdx, 1)
     saveNotes()
+    return gNotes
 }
 
 function getNoteIdx(id) {
@@ -95,4 +91,15 @@ function getNoteById(id) {
 
 function saveNotes() {
     utilService.storeToStorage('notesDB', gNotes)
+}
+
+// private functions
+
+_loadNotes()
+function _loadNotes() {
+    let notes = utilService.loadFromStorage(KEY);
+    if (!notes || !notes.length) {
+        notes = gNotes;
+        saveNotes();
+    }
 }

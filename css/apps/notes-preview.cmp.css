@@ -1,8 +1,21 @@
+section.note-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
 .note-preview {
     font-family: 'Roboto', sans-serif;
     border: 1px solid gray;
     border-radius: 0.7rem;
     padding: 0.6rem;
     margin: 1rem;
-    max-width: 15rem;
+    width: 15rem;
+    height: 20rem;
+}
+
+img.note-img {
+    max-width: 300px;
+    max-height: 150px;
+    object-fit: contain;
 }
