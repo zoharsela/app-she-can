@@ -4,6 +4,7 @@
 
 /* SheKeep cmps */
 
+@import 'apps/color-picker.cmp.css';
 @import 'apps/notes-preview.cmp.css';
 /* general, temporary, fonts are not decided yet but will be nicer to watch */
 
@@ -13,4 +14,31 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+}
+
+/* general helpers */
+
+.flex {
+    display: flex;
+}
+
+.flex-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* restarters */
+
+li {
+    list-style-type: none;
 }
