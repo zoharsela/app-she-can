@@ -1,7 +1,7 @@
-import bookApp from'../pages/book-app.js'
-import appHeader from'../cmp/app-header.js'
+// import bookApp from'../pages/book-app.js'
+import navBar from'./cmps/nav.cmp.js'
 import { myRouter } from './routes.js'
-import userMsg from '../cmp/user-msg.js'
+// import userMsg from '../cmp/user-msg.js'
 
 
 const options = {
@@ -9,17 +9,19 @@ const options = {
     router: myRouter,
     template: `
         <section>
-            <!-- <app-header></app-header> -->
             <main>
-            <router-view></router-view>
+                <nav-bar></nav-bar>
+                <router-view>
+
+            </router-view>
             </main>
             <!-- <user-msg/> -->
         </section>
     `,
     components: {
-        bookApp,
-        appHeader,
-        userMsg
+        // appHeader,
+        // userMsg,
+        navBar
     }
 }
 

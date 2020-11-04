@@ -1,24 +1,21 @@
 // import bookApp from '../pages/book-app.js';
 // import homePage from '../pages/home-page.js';
 // import aboutPage from '../pages/about-page.js';
-import emailApp from '../js/apps/email/email-app.js';
-import keepApp from '../js/apps/keep/keep-app.cmp.js';
+import emailApp from './apps/mail/email-app.cmp.js';
+import keepApp from './apps/keep/keep-app.cmp.js';
 
 
 
 const myRoutes = [
-    {
-        path: '/book',
-        component: bookApp
-    },
-    {
-        path: '/',
-        component: homePage
-    },
-    {
-        path: '/about',
-        component: aboutPage
-    },
+   
+    // {
+    //     path: '/',
+    //     component: homePage
+    // },
+    // {
+    //     path: '/about',
+    //     component: aboutPage
+    // },
     {
         path: '/email',
         component: emailApp
