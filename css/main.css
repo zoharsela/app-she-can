@@ -1,0 +1,16 @@
+/* homePage cmps */
+
+/* SheMail cmps */
+
+/* SheKeep cmps */
+
+@import 'apps/notes-preview.cmp.css';
+/* general, temporary, fonts are not decided yet but will be nicer to watch */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}

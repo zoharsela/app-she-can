@@ -1,0 +1,8 @@
+.note-preview {
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid gray;
+    border-radius: 0.7rem;
+    padding: 0.6rem;
+    margin: 1rem;
+    max-width: 15rem;
+}
