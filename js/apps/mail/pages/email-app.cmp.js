@@ -35,8 +35,8 @@ export default {
             if (!this.filterObj) return this.emails;
             const txt = this.filterObj.filterText.toLowerCase();
             return this.emails.filter(email => email.subject.toLowerCase().includes(txt))
-                .filter(email => this.email.isRead === true)
-                .filter(email => this.email.isRead === false);
+                // .filter(email => this.email.isRead === true)
+                // .filter(email => this.email.isRead === false);
         }
     },
     components: {
