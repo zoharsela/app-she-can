@@ -1,20 +1,17 @@
 import { keepService } from './services/keep-service.js'
 import notesList from './cmps/notes-list.cmp.js'
 import createNote from './cmps/create-note.cmp.js'
-import pickColor from './cmps/set-note-color.cmp.js'
 import { eventBus, EVENT_DELETE_NOTE } from '../../services/event-bus.js'
 
 export default {
-  template: `<section class="keep-app">
-                <pick-color></pick-color>
+  template: `<section class="keep-app container">
                 <create-note></create-note>
                 <notes-list :notes="notes"></notes-list>
             </section>
   `,
   components: {
     notesList,
-    createNote,
-    pickColor
+    createNote
   },
   data() {
     return {

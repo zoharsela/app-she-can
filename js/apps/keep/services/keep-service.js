@@ -5,7 +5,9 @@ export const keepService = {
     getNotes,
     addNote,
     deleteNote,
-    updateNote
+    updateNote,
+    getTodoById,
+    doTodo
 }
 
 const KEY = 'notesDB'
@@ -29,7 +31,7 @@ var gNotes = [{
         title: "Me playing Mi"
     },
     style: {
-        backgroundColor: "#ffd"
+        backgroundColor: "#c9e882"
     }
 },
 {
@@ -40,8 +42,8 @@ var gNotes = [{
     info: {
         title: "How was it:",
         todos: [
-            { txt: "Do that", doneAt: null },
-            { txt: "Do this", doneAt: 187111111 }]
+            { id: utilService.makeId(3), txt: "Do that", doneAt: null },
+            { id: utilService.makeId(3), txt: "Do this", doneAt: 187111111 }]
     }
 },
 {
@@ -87,6 +89,16 @@ function updateNote(note) {
 function getNoteById(id) {
     const note = gNotes.find(note => note.id === id)
     return Promise.resolve(note)
+}
+
+function getTodoById(todoId) {
+    const todo = gNotes.find(todo => todo.id === todoId)
+    return Promise.resolve(todo)
+}
+
+function doTodo(todo) {
+    todo.doneAt = new Date().getTime()
+    return todo
 }
 
 function saveNotes() {
