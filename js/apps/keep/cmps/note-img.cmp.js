@@ -3,8 +3,7 @@ export default {
     props: ['note'],
     template: `
         <section class="note-img">
-          <p>//IMAGE</p>
-           <h2 v-if="note.info.title">{{note.info.title}}</h2>
+          <p class="note-type">//IMAGE</p>
            <img class="note-img" :src="note.info.url"/>
         </section>
     `,

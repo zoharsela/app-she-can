@@ -1,9 +1,12 @@
 export default {
     template: `
-          <nav>
-                <router-link to="/" exact>Home</router-link>
-                <router-link to="/email" exact>Email</router-link>
-                <router-link to="/keep">Keep</router-link>
-        </nav>
+          <nav class="main-navbar container flex">
+                <router-link to="/" exact class="logo-navbar">Yes she can</router-link>
+                <div class="nav-to-right">
+                <router-link to="/email" exact class="navbar-link">SheMail</router-link>
+                <router-link to="/keep" exact class="navbar-link">SheKeep</router-link>
+                <router-link to="/email" exact class="navbar-link">About</router-link>
+                </div>
+         </nav>
     `
 }

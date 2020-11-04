@@ -1,11 +1,18 @@
+/* fonts */
+
+@import 'general/fonts.css';
+/* general */
+
+@import 'general/nav.css';
 /* homePage cmps */
 
 /* SheMail cmps */
 
 /* SheKeep cmps */
 
-@import 'apps/color-picker.cmp.css';
-@import 'apps/notes-preview.cmp.css';
+@import 'apps/keep/color-picker.cmp.css';
+@import 'apps/keep/notes-preview.cmp.css';
+@import 'apps/keep/add-note.cmp.css';
 /* general, temporary, fonts are not decided yet but will be nicer to watch */
 
 * {
@@ -13,7 +20,10 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: Roboto;
+    margin: 0 auto;
+    padding: 0;
+    color: rgb(45, 45, 45);
 }
 
 /* general helpers */
@@ -37,8 +47,26 @@ body {
     flex-direction: column;
 }
 
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
 /* restarters */
 
 li {
     list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    padding: 0;
 }

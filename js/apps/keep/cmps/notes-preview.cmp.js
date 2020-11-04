@@ -9,9 +9,11 @@ export default {
   props: ['note'],
   name: 'notes-preview',
   template: `<section class="note-preview flex-column" :style="{ backgroundColor: noteBgc }">
-               <button @click="deleteNote(note.id)">X</button>
-                <span class="note-time-created">{{timeCreation}}</span>
-                <span class="note-date-created">{{dateCreation}}</span>
+               <button class="delete-btn" @click="deleteNote(note.id)"><i class="icon fas fa-times"></i></button>
+                <div class="note-time">
+                  <span class="note-time-created">{{timeCreation}}</span>
+                  <span class="note-date-created">{{dateCreation}}</span>
+                </div>
                  <component :is="note.type" :note="note"></component>
             </section>
   `,
@@ -28,7 +30,8 @@ export default {
     },
     timeCreation() {
       if (!this.note.createdAt) return
-      return new Date(this.note.createdAt).toLocaleTimeString()
+      var time = new Date(this.note.createdAt)
+      return time.getHours() + ":" + time.getMinutes()
     },
     dateCreation() {
       if (!this.note.createdAt) return

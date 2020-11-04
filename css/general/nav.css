@@ -1,0 +1,34 @@
+.main-navbar {
+    height: 6rem;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.198);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-navbar .logo-navbar {
+    font-family: Hotel;
+    font-size: 4rem;
+    color: rgb(245, 101, 168);
+    transition: all .4s;
+}
+
+.main-navbar .logo-navbar:hover {
+    text-shadow: 1px 2px 2px rgba(170, 170, 170, 0.36);
+}
+
+.main-navbar .navbar-link {
+    color: rgb(68, 68, 68);
+    font-family: Dosis;
+    font-size: 1.4rem;
+    transition: all .4s;
+}
+
+.main-navbar .navbar-link:hover {
+    color: rgb(245, 101, 168);
+    text-shadow: 1px 2px 2px rgba(226, 114, 191, 0.36);
+}
+
+.main-navbar .navbar-link:not(:last-child) {
+    margin-right: 2.2rem;
+}

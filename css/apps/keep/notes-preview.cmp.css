@@ -1,0 +1,54 @@
+section.note-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.note-preview {
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid rgba(128, 128, 128, 0.241);
+    border-radius: 0.7rem;
+    padding: 1rem;
+    width: 15rem;
+    max-height: 25rem;
+    transition: all .4s;
+}
+
+.note-preview:hover {
+    box-shadow: 1px 2px 2px rgba(189, 189, 189, 0.36);
+}
+
+img.note-img {
+    width: 100%;
+    max-width: 300px;
+    max-height: 250px;
+    object-fit: contain;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+div.note-time {
+    display: flex;
+    justify-content: space-between;
+}
+
+button.delete-btn {
+    background-color: transparent;
+    border: none;
+}
+
+.icon {
+    font-size: 1.2rem;
+}
+
+.notes-list {
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+    padding: 0;
+    justify-content: space-between;
+}
+
+p.note-type {
+    font-size: 0.85rem;
+}
