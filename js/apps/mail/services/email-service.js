@@ -6,7 +6,8 @@ var gEmails;
 
 export const emailService = {
     getEmailById,
-    getEmails
+    getEmails,
+    changeToIsRead
   }
 
 function _createEmails() {
@@ -21,6 +22,7 @@ function _createEmails() {
 function _createEmail() {
     return {
         id: utilService.makeId(),
+        senderName: 'Asos',
         subject: 'Wassap?',
         body: 'Pick up!',
         isRead: false,
@@ -29,11 +31,18 @@ function _createEmail() {
 }
 
 function getEmailById(emailId){
-    const email = emails.find(email => email.id === emailId);
+    var email = gEmails.find(email => email.id === emailId);
     return Promise.resolve(email);
 }
 
 function getEmails(){
     gEmails = _createEmails();
   return Promise.resolve(gEmails);
+}
+
+function changeToIsRead(emailId){
+    const emailIsRead = gEmails.find(email => {
+        return email.id === emailId
+    })
+    emailIsRead.isRead = true;
 }

@@ -8,13 +8,13 @@ export default {
     template: `
      <section class="email-app">
         <email-filter @filtered="setFilter"></email-filter>
-        <email-list @selected="setSelectedEmail" :emails="emails" v-if="emails"></email-list>
+        <email-list @selected="setSelectedEmail" :emails="emailsToShow" v-if="emails"></email-list>
     </section>
   `,
     data() {
         return {
             emails: null,
-            filterBy: null,
+            filterObj: null,
             selectedEmail: null,
         }
     },
@@ -23,19 +23,19 @@ export default {
             .then(emails => this.emails = emails)
     },
     methods: {
-        setFilter(filterBy) {
-            this.filterBy = filterBy
+        setFilter(filterObj) {
+            this.filterObj = filterObj
         },
         setSelectedEmail(email) {
             this.selectedEmail = email;
         }
     },
     computed: {
-        // emailsToShow() {
-        //     if (!this.filterBy) return this.emails;
-        //     const txt = this.filterBy.byTitle.toLowerCase();
-        //     return this.emails.filter(email => email.title.toLowerCase().includes(txt))
-        // }
+        emailsToShow() {
+            if (!this.filterObj) return this.emails;
+            const txt = this.filterObj.filterText.toLowerCase();
+            return this.emails.filter(email => email.subject.toLowerCase().includes(txt))
+        }
     },
     components: {
         emailList,
