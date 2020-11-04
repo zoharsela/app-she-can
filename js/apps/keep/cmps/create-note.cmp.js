@@ -7,15 +7,15 @@ export default {
   name: 'create-note',
   template: `
     <section class="add-note container">
+    <button class="add-note-btn" @click="isToAddNote = true"><i class="icon fas fa-font"></i></button>
+    <button class="add-note-btn" @click="isToAddUrl=true; changeNoteType('noteImg')"><i class="icon far fa-images"></i></button>
+    <button class="add-note-btn" @click="isToAddUrl=true; changeNoteType('noteVideo')"><i class="icon far fa-play-circle"></i></button>
+    <set-bgc-color v-if="isToPickColor"></set-bgc-color>
+    <button class="add-note-btn" @click="isToPickColor =!isToPickColor"><i class="icon fas fa-fill-drip"></i></button>
+    <button class="add-note-btn" @click='addNote'><i class="icon far fa-save"></i></button>
     <input placeholder="Title" v-if="isToAddNote" type="text" v-model="noteToAdd.info.title"/>
     <input placeholder="Text" v-if="isToAddNote" type="text" v-model="noteToAdd.info.txt">
     <input placeholder="Add url" v-if="isToAddUrl" type="text" v-model="noteToAdd.info.url"/>
-    <button @click="isToAddNote = true"><i class="icon fas fa-font"></i></button>
-    <button @click="isToAddUrl=true; changeNoteType('noteImg')"><i class="icon far fa-images"></i></button>
-    <button @click="isToAddUrl=true; changeNoteType('noteVideo')"><i class="icon far fa-play-circle"></i></button>
-    <button v-if="isToAddNote" @click='addNote'><i class="far fa-save"></i></button>
-    <set-bgc-color v-if="isToPickColor"></set-bgc-color>
-            <button @click="isToPickColor =!isToPickColor"><i class="icon fas fa-fill-drip"></i></button>
        </section>
 `,
   data() {
@@ -25,7 +25,7 @@ export default {
       isToAddUrl: false,
       noteToAdd: {
         id: null,
-        type: 'noteText',
+        type: null,
         isPinned: false,
         info: {
           title: null,
@@ -53,6 +53,9 @@ export default {
           txt: null,
           url: null,
         },
+        style: {
+          backgroundColor: null
+        }
       }
     },
     changeNoteType(type) {

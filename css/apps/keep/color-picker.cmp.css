@@ -1,6 +1,7 @@
 section.color-setter {
+    display: inline;
     position: absolute;
-    top: 40px;
+    top: 33px;
     left: 50px;
     max-width: 9.5rem;
     display: flex;

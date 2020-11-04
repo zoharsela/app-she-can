@@ -5,7 +5,8 @@ import { eventBus, EVENT_DELETE_NOTE } from '../../services/event-bus.js'
 
 export default {
   template: `<section class="keep-app container">
-                <create-note></create-note>
+              <button class="button-reset" @click="isToCreate =!isToCreate"><i class="icon fas fa-plus"></i></button>
+                <create-note v-if="isToCreate"></create-note>
                 <notes-list :notes="notes"></notes-list>
             </section>
   `,
@@ -16,6 +17,7 @@ export default {
   data() {
     return {
       notes: null,
+      isToCreate: false
     }
   },
   created() {
