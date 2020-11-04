@@ -46,7 +46,9 @@ button.delete-btn {
     display: flex;
     margin: 0 auto;
     padding: 0;
+    margin-top: 2rem;
     justify-content: space-between;
+    align-content: flex-start;
 }
 
 p.note-type {
