@@ -2,11 +2,11 @@ export default {
     props: ['email'],
     name: 'emailPreview',
     template:`
-    <section class="email-preview" :class="{read: email.isRead, unread: !email.isRead}" @click.stop="open">
-        <div>
+    <section class="email-preview" @click.stop="open">
+        <div :class="{read: email.isRead, unread: !email.isRead}">
            <h4>{{email.senderName}} | <span>{{email.subject}}</span></h4>
-           <i v-if="!email.isRead" class="fas fa-envelope"></i>
-           <i v-if="email.isRead" class="fas fa-envelope-open-text"></i>
+           <i v-if="!email.isRead" class="far fa-envelope"></i>
+           <i v-if="email.isRead" class="far fa-envelope-open"></i>
         </div>
         <div v-if="isOpen" class="open">
             <h3>{{email.subject}}</h3>
@@ -14,7 +14,7 @@ export default {
             <p>{{emailText}}</p>
             <router-link :to="'/email/' +email.id">Details</router-link>
         </div>
-        </section>
+    </section>
     `,
     data() {
        return {
@@ -24,6 +24,7 @@ export default {
     methods: {
         open() {
             this.isOpen = !this.isOpen;
+            this.email.isRead = !this.email.isRead;
         }
     } ,
     computed: {
@@ -32,3 +33,5 @@ export default {
            } 
     }
 }
+
+//far fa-paper-plane

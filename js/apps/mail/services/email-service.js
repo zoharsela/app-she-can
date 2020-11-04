@@ -7,7 +7,8 @@ var gEmails;
 export const emailService = {
     getEmailById,
     getEmails,
-    changeToIsRead
+    changeToIsRead,
+    deleteEmail
   }
 
 function _createEmails() {
@@ -37,6 +38,7 @@ function getEmailById(emailId){
 
 function getEmails(){
     gEmails = _createEmails();
+    console.log(gEmails);
   return Promise.resolve(gEmails);
 }
 
@@ -45,5 +47,11 @@ function changeToIsRead(emailId){
         return email.id === emailId
     })
     emailIsRead.isRead = true;
-    console.log(emailIsRead.isRead);
 }
+
+function deleteEmail(emailId) {
+    const idx = gEmails.findIndex(currEmail => currEmail.id === emailId);
+    gEmails.splice(idx, 1);
+    utilService.storeToStorage(STORAGE_KEY, gEmails);
+    return Promise.resolve(gEmails);
+  }
