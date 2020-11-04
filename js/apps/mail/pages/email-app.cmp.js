@@ -2,7 +2,7 @@ import { emailService } from '../services/email-service.js'
 import emailList from '../cmps/email-list.cmp.js';
 import emailFilter from '../cmps/email-filter.cmp.js';
 // import longText from '../cmps/long-text.js';
-// :emails="emailsToShow" v-if="emails"
+
 export default {
     name: 'emailApp',
     template: `
