@@ -1,0 +1,17 @@
+.email-details-container {
+    flex-flow: column;
+    width: 400px;
+    margin-left: 50px;
+}
+
+.email-details-container h4 {
+    justify-content: space-between;
+}
+
+.email-details-container h4 span {
+    color: rgb(151, 151, 151);
+}
+
+.email-body {
+    flex-direction: column;
+}

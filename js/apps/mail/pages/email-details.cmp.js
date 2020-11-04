@@ -4,10 +4,10 @@ import { emailService } from '../services/email-service.js'
 export default {
     name: 'emailDetails',
     template: `
-    <section class="email-details-container" v-if="email">
-        <h4>Subject: {{email.subject}}</h4>
-        <h3>From: {{email.senderName}} <span>Sent At: {{email.sentAt}}</span></h3>
-        <div class="email-body">
+    <section class="email-details-container flex" v-if="email">
+        <h2>Subject: {{email.subject}}</h2>
+        <h4 class="flex">From: {{email.senderName}} <span>Sent At: {{email.sentAt}}</span></h4>
+        <div class="email-body flex">
             <p>{{email.body}}</p>
             <router-link to="/email" class="return-btn">
             <i class="fas fa-arrow-left"></i>

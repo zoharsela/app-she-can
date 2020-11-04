@@ -7,7 +7,8 @@
 /* homePage cmps */
 
 /* SheMail cmps */
-
+@import 'apps/email/email-app.cmp.css';
+@import 'apps/email/email-details.cmp.css';
 /* SheKeep cmps */
 
 @import 'apps/keep/color-picker.cmp.css';

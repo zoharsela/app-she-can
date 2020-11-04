@@ -2,7 +2,7 @@ export default {
     template: `
         <section class="email-filter">
             <input type="text" v-model="filterObj.filterText" placeholder="Search here" @keyup.enter="emitFilter" />
-            <select v-model="filterObj.filterBy" @keyup.enter="emitFilter">
+            <select v-model="filterObj.filterBy" @keyup="emitFilter">
                 <option value="byAll">All</option>
                 <option value="byRead">Read</option>
                 <option value="byUnRead">UnRead</option>
