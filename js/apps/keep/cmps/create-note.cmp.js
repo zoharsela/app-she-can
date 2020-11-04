@@ -9,8 +9,8 @@ export default {
             <input placeholder="Title" type="text" v-model="noteToAdd.info.title"/>
             <input placeholder="Text" @click="isToAddNote = true" type="text" v-model="noteToAdd.info.txt">
             <input placeholder="Add url" v-if="isToAddUrl" type="text" v-model="noteToAdd.info.url"/>
-            <button @click="isToAddUrl=true; changeNoteType('noteImg')">Add Img Url</button>
-            <button @click="isToAddUrl=true; changeNoteType('noteVideo')">Add Video Url</button>
+            <button @click="isToAddUrl=true; changeNoteType('noteImg')"><i class="far fa-images"></i></button>
+            <button @click="isToAddUrl=true; changeNoteType('noteVideo')"><i class="far fa-play-circle"></i></button>
             <button v-if="isToAddNote" @click='addNote'>Save Note</button>
        </section>
 `,
