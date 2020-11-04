@@ -45,9 +45,8 @@ var defaultNotes = [{
     isPinned: true,
     createdAt: 1604486467965,
     info: {
-        label: "How was it:", todos: [
-            { txt: "Do that", doneAt: null },
-            { txt: "Do this", doneAt: 187111111 }]
+        url: "https://www.youtube.com/watch?v=Ffz_8eXyfxU",
+        title: "Leonard Cohen Greatest Hits"
     }
 }
 ];
