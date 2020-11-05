@@ -2,6 +2,7 @@ import { utilService } from '../../../services/util-service.js'
 const STORAGE_KEY = 'emailsDB';
 
 var gEmails;
+var gCountUnread = 0;
 
 
 export const emailService = {
@@ -12,24 +13,52 @@ export const emailService = {
     sendEmail
 }
 
-function _createEmails() {
-    var emails = utilService.loadFromStorage(STORAGE_KEY);
-    if (!emails || emails.length) {
-        emails = [_createEmail('Haleli'), _createEmail('Zohar'), _createEmail('Itay'), _createEmail('Dror')]
-        utilService.storeToStorage(STORAGE_KEY, emails);
+function getEmails() {
+    gEmails = utilService.loadFromStorage(STORAGE_KEY);
+    console.log(gEmails);
+    if (!gEmails || !gEmails.length) {
+        console.log('11');
+        gEmails = _createEmail()
+        utilService.storeToStorage(STORAGE_KEY, gEmails);
     }
-    return emails;
+    gCountUnread = gEmails.length;
+    return Promise.resolve(gEmails);
 }
 
 function _createEmail() {
-    return {
+    return [{
         id: utilService.makeId(),
-        senderName: 'Asos',
-        subject: 'Wassap?',
-        body: 'Pick up!',
+        senderName: 'Asos Orders',
+        subject: 'Thanks for your order!',
+        body: 'Hi, your order has been received!',
         isRead: false,
-        sentAt: 1551133930594
+        sentAt: 'Oct 28'
+    },
+    {
+        id: utilService.makeId(),
+        senderName: 'Linkedin',
+        subject: 'You are getting noticed',
+        body: 'See who is looking!',
+        isRead: false,
+        sentAt: 'Jun 28'
+    },
+    {
+        id: utilService.makeId(),
+        senderName: 'Coding Academy',
+        subject: 'Congrats!',
+        body: 'We are happy to start!',
+        isRead: false,
+        sentAt: 'May 28'
+    },
+    {
+        id: utilService.makeId(),
+        senderName: 'Coursera',
+        subject: 'Recommended: Object Oriented Programming in JS',
+        body: 'Recommendations for you',
+        isRead: false,
+        sentAt: 'Jun 28'
     }
+    ]
 }
 
 function getEmailById(emailId) {
@@ -37,17 +66,17 @@ function getEmailById(emailId) {
     return Promise.resolve(email);
 }
 
-function getEmails() {
-    gEmails = _createEmails();
-    console.log(gEmails);
-    return Promise.resolve(gEmails);
-}
 
 function changeToIsRead(emailId) {
     const emailIsRead = gEmails.find(email => {
         return email.id === emailId
     })
-    emailIsRead.isRead = true;
+    emailIsRead.isRead = !emailIsRead.isRead;
+    utilService.storeToStorage(STORAGE_KEY, gEmails);
+    if (emailIsRead.isRead) {
+        gCountUnread--
+    } else gCountUnread++;
+    return gCountUnread;
 }
 
 function deleteEmail(emailId) {
@@ -57,20 +86,9 @@ function deleteEmail(emailId) {
     return Promise.resolve(gEmails);
 }
 
-// function getNewEmail() {
-//     return {
-//         id: utilService.makeId(),
-//         senderName: '',
-//         subject: '',
-//         body: '',
-//         isRead: false,
-//         sentAt: new Date()
-//     }
-// }
-
 function sendEmail(email) {
     email.id = utilService.makeId();
     gEmails.push(email);
     utilService.storeToStorage(STORAGE_KEY, gEmails);
     return Promise.resolve()
-  }
+}

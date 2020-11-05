@@ -1,7 +1,32 @@
+.email-line {
+    align-self: flex-start;
+    align-items: center;
+    padding: 4px;
+}
+
+.email-line h4 {
+    font-weight: bolder;
+    justify-content: start;
+}
+.read {
+    background-color: rgb(243, 243, 243);
+    color: rgb(192, 192, 192);  
+}
+
 .fa-envelope {
     margin-left: 10px;
 }
 
 .fa-envelope-open {
     margin-left: 10px;
+}
+
+.email-list-btn {
+    padding: 5px;
+    justify-content: end;
+}
+
+.email-list-btn:hover {
+    background-color: #fff;
+    border-radius: 100%;
 }

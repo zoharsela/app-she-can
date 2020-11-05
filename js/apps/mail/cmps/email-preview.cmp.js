@@ -5,20 +5,20 @@ export default {
     name: 'emailPreview',
     template: `
     <section class="email-preview">
-        <div>
+        <div class="email-line flex" :class="{read: email.isRead}">
             <router-link :to="'/email/' +email.id"  @click.stop="open"></router-link>
             <input type="checkbox" class="checkbox">
             <label for="checkbox"></label>
            <h4>{{email.senderName}} | <span>{{email.subject}} | <small>{{emailText}}</small></span></h4>
-           <button  @click.stop="deleteEmail(email.id)"> <i class="fas fa-trash"></i></button>
-           <i v-if="!email.isRead" class="far fa-envelope" @click.stop="markedEmail" :class="{read: email.isRead}"></i>
-           <i v-if="email.isRead" class="far fa-envelope-open" @click.stop="markedEmail"></i>
+           <button  class="button-reset email-list-btn flex" @click.stop="deleteEmail(email.id)"> <i class="fas fa-trash"></i></button>
+           <button class="button-reset email-list-btn flex"><i v-if="!email.isRead" class="far fa-envelope" @click.stop="markedEmail" :class="{read: email.isRead}"></i>
+           <i v-if="email.isRead" class="far fa-envelope-open" @click.stop="markedEmail"></i></button>
         </div>
     </section>
     `,
     data() {
         return {
-            isOpen: false
+            isOpen: false,
         }
     },
     methods: {
@@ -26,7 +26,8 @@ export default {
             this.isOpen = !this.isOpen;
         },
         markedEmail(){
-            this.email.isRead = !this.email.isRead;
+            
+            this.$emit(countUnread)
         },
         deleteEmail(emailId) {
             emailService.deleteEmail(emailId)

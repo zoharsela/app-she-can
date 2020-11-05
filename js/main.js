@@ -1,7 +1,7 @@
 import emailApp from'../js/apps/mail/pages/email-app.cmp.js'
 import navBar from'./cmps/nav.cmp.js'
 import { myRouter } from './routes.js'
-// import userMsg from '../cmp/user-msg.js'
+import userMsg from './cmps/user-msg.cmp.js'
 
 
 const options = {
@@ -14,12 +14,12 @@ const options = {
             <router-view>
             </router-view>
             </main>
-            <!-- <user-msg/> -->
+            <user-msg/>
         </section>
     `,
     components: {
         // appHeader,
-        // userMsg,
+        userMsg,
         navBar,
         emailApp
     }

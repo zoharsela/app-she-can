@@ -11,8 +11,8 @@ export default {
             <p>{{email.body}}</p>
             <router-link to="/email" class="return-btn">
             <i class="fas fa-arrow-left"></i>
+            <button @click="deleteEmail(email.id)"> <i class="fas fa-trash"></i></button>
         </router-link>
-         <button  @click="deleteEmail(email.id)"> <i class="fas fa-trash"></i></button>
         </div>
     </section>
     `,
