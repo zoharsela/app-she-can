@@ -9,3 +9,8 @@ button.update-note-btn {
     font-weight: bold;
     letter-spacing: 2px;
 }
+
+p.edit-time {
+    font-size: 0.9rem;
+    /* margin-top: 3rem; */
+}

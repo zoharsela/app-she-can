@@ -4,6 +4,8 @@
 /* general */
 
 @import 'general/nav.css';
+@import 'general/homepage.css';
+@import 'general/footer.css';
 /* homePage cmps */
 
 /* SheMail cmps */
@@ -30,6 +32,7 @@ body {
     margin: 0 auto;
     padding: 0;
     color: rgb(45, 45, 45);
+    letter-spacing: 1px;
 }
 
 /* general helpers */

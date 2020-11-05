@@ -5,7 +5,7 @@ import { eventBus, EVENT_DELETE_NOTE, EVENT_UPDATE_NOTE, EVENT_DO_TODO, EVENT_TO
 
 export default {
   template: `<section class="keep-app container">
-              <div class="add-note"><button class="button-reset add-note" @click="isToCreate = true"><i class="icon far fa-sticky-note"></i></button>
+              <div class="add-note"><button class="button-reset add-note" @click="isToCreate =!isToCreate"><i class="icon far fa-sticky-note"></i></button>
                 <create-note class="add-note" v-if="isToCreate" @closeAdder="closeAdder"></create-note></div>
                 <notes-list :notes="notes"></notes-list>
             </section>
@@ -39,7 +39,6 @@ export default {
     },
     doTodo(noteId, idx) {
       keepService.getTodoDone(noteId, idx)
-      // .then(notes => this.notes = notes)
     },
     togglePin(noteId) {
       keepService.togglePin(noteId)

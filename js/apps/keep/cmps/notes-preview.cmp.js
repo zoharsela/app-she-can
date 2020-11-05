@@ -22,7 +22,8 @@ export default {
                 <span class="note-time-created">{{timeCreation}}</span>
                 <span class="note-date-created">{{dateCreation}}</span>
              </div>
-            <component :is="note.type" :note="note"></component>
+             <component :is="note.type" :note="note"></component>
+             <p class="edit-time" v-if="note.isEdited">Last Edit: {{lastEditedTime}}</p>
         </section>
   `,
   components: {
@@ -50,6 +51,14 @@ export default {
       if (!this.note.createdAt) return
       var time = new Date(this.note.createdAt)
       return time.getHours() + ":" + time.getMinutes()
+    },
+    lastEditedTime() {
+      if (!this.note.isEdited) return
+      var time = new Date(this.note.lastEdited)
+      var fullEditTime = time.getHours() + ":" + time.getMinutes() + "," + time.toLocaleString(undefined, {
+        month: "short", day: "numeric",
+      })
+      return fullEditTime;
     },
     dateCreation() {
       if (!this.note.createdAt) return

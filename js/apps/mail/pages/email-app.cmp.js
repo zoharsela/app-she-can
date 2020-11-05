@@ -9,7 +9,7 @@ import emailPreview from '../cmps/email-compose.cmp.js';
 export default {
     name: 'emailApp',
     template: `
-     <section class="email-app">
+     <section class="email-app container">
          <nav>
          <button @click="newEmail"><i class="fas fa-plus"></i></button>
          <h3>Inbox{{countUnread}}</h3>
@@ -43,9 +43,9 @@ export default {
         newEmail() {
             this.isEmailCompose = !this.isEmailCompose;
         },
-        markAsRead(emailId, countUnread){
-        var countUnread = emailService.changeToIsRead(emailId)
-    }
+        markAsRead(emailId, countUnread) {
+            var countUnread = emailService.changeToIsRead(emailId)
+        }
     },
     computed: {
         emailsToShow() {

@@ -4,7 +4,7 @@ export default {
     template: `
         <section class="note-content">
             <span class="note-type">//VIDEO</span>
-            <iframe class="note-video" width="200" height="115" :src="'//www.youtube.com/embed/'+getVideoId"></iframe>
+            <iframe class="note-video" width="220" height="115" :src="'//www.youtube.com/embed/'+getVideoId"></iframe>
         </section>
     `,
     data() {

@@ -1,38 +1,38 @@
-
-.email-filter{
+.email-filter {
     display: flex;
     height: 30px;
     margin-left: 50px;
 }
-.email-filter input{
+
+.email-filter input {
     width: 650px;
-    background-color: rgba(192,192,192,0.1);
+    background-color: rgba(192, 192, 192, 0.1);
     border-radius: 5px;
     border: none;
 }
 
-.email-filter select{
-    background-color: rgba(192,192,192,0.1);
+.email-filter select {
+    background-color: rgba(192, 192, 192, 0.1);
     border-radius: 5px;
     border: none;
 }
 
-.email-list-container{
+.email-list-container {
     background-color: rgb(224, 224, 224);
     width: 800px;
     margin-left: 50px;
 }
 
-.email-list-container ul li{
+.email-list-container ul li {
     border-top: 1px solid rgb(236, 236, 236);
     border-bottom: 1px solid rgb(236, 236, 236);
 }
 
-.email-list-container ul li:hover{
+.email-list-container ul li:hover {
     background-color: rgb(235, 233, 233);
 }
 
-.email-list-container ul li h4{
+.email-list-container ul li h4 {
     margin-left: 20px;
 }
 
@@ -40,12 +40,12 @@
     position: fixed;
 }
 
-.user-msg{
+.user-msg {
     position: absolute;
     top: 0;
     right: 20px;
-    border:2px solid green;
+    border-radius: 10px;
+    border: 2px solid green;
     color: green;
     padding: 10px 20px;
-
 }

@@ -47,9 +47,11 @@ export default {
           this.noteToAdd.info.todos.push({ txt: todos[i], isDone: false })
         }
       }
-      this.noteToAdd.id = utilService.makeId(),
-        this.noteToAdd.createdAt = new Date().getTime(),
-        this.noteToAdd.isPinned = false;
+      this.noteToAdd.id = utilService.makeId();
+      this.noteToAdd.isPinned = false;
+      this.noteToAdd.createdAt = new Date().getTime();
+      this.noteToAdd.isEdited = false;
+      this.noteToAdd.lastEdited = null;
       eventBus.$emit(EVENT_ADD_NOTE, this.noteToAdd)
       this.$emit('closeAdder')
     },
