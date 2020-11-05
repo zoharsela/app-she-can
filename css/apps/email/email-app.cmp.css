@@ -39,3 +39,13 @@
 .checkbox {
     position: fixed;
 }
+
+.user-msg{
+    position: absolute;
+    top: 0;
+    right: 20px;
+    border:2px solid green;
+    color: green;
+    padding: 10px 20px;
+
+}

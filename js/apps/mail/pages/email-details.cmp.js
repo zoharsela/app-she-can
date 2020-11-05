@@ -1,5 +1,5 @@
 import { emailService } from '../services/email-service.js'
-// import { eventBus, EVENT_DELETE_EMAIL } from '../../../services/event-bus.js'
+import { eventBus } from '../../../services/event-bus.js'
 
 export default {
     name: 'emailDetails',
@@ -27,11 +27,12 @@ export default {
         emailService.getEmailById(emailId)
             .then(email => this.email = email)
         },
-        // deleteEmail(emailId){
-        //     emailService.deleteEmail(emailId)
-        //     .then(() => eventBus.$emit(EVENT_DELETE_EMAIL, 'Email was successfully Deleted'))
-        //     .catch(err => console.log('something went wrong', err))
-        // }
+        deleteEmail(emailId) {
+            this.email = !this.email;
+            emailService.deleteEmail(emailId)
+                .then(() => eventBus.$emit('show-msg', 'Email was successfully Deleted'))
+                .catch(err => console.log('something went wrong', err))
+        }
     },
     created() {
         this.getEmail()

@@ -1,3 +1,5 @@
+import { eventBus } from '../../../services/event-bus.js'
+import { emailService } from '../services/email-service.js'
 export default {
     props: ['email'],
     name: 'emailPreview',
@@ -12,10 +14,6 @@ export default {
            <i v-if="!email.isRead" class="far fa-envelope" @click.stop="markedEmail" :class="{read: email.isRead}"></i>
            <i v-if="email.isRead" class="far fa-envelope-open" @click.stop="markedEmail"></i>
         </div>
-        <!-- <div v-if="isOpen" class="open">
-            <h3>{{email.subject}}</h3>
-            <h3>{{email.senderName}}</h3>
-        </div> -->
     </section>
     `,
     data() {
@@ -29,6 +27,11 @@ export default {
         },
         markedEmail(){
             this.email.isRead = !this.email.isRead;
+        },
+        deleteEmail(emailId) {
+            emailService.deleteEmail(emailId)
+                .then(() => eventBus.$emit('show-msg', 'Email was successfully Deleted'))
+                .catch(err => console.log('something went wrong', err))
         }
     },
     computed: {
