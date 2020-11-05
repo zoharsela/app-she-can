@@ -7,6 +7,7 @@
 /* homePage cmps */
 
 /* SheMail cmps */
+
 @import 'apps/email/email-app.cmp.css';
 @import 'apps/email/email-compose.cmp.css';
 @import 'apps/email/email-details.cmp.css';
@@ -67,6 +68,12 @@ body {
     display: inline;
 }
 
+.icon {
+    font-size: 1.3rem;
+    color: rgb(45, 45, 45);
+    cursor: pointer;
+}
+
 /* restarters */
 
 li {
@@ -84,6 +91,7 @@ ul {
 
 input {
     font-family: Roboto;
+    width: 15rem;
     border: 1px solid rgb(164, 164, 164);
     padding: 0.1rem;
 }

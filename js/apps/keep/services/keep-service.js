@@ -6,8 +6,8 @@ export const keepService = {
     addNote,
     deleteNote,
     updateNote,
-    getTodoById,
-    doTodo
+    saveNotes,
+    getTodoDone
 }
 
 const KEY = 'notesDB'
@@ -20,6 +20,9 @@ var gNotes = [{
         title: 'whoot',
         txt: "Fullstack Me Baby!"
     },
+    style: {
+        backgroundColor: null,
+    }
 },
 {
     id: utilService.makeId(),
@@ -28,7 +31,6 @@ var gNotes = [{
     createdAt: 1604486494659,
     info: {
         url: "https://images.unsplash.com/photo-1516636052745-e142aecffd0c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80",
-        title: "Me playing Mi"
     },
     style: {
         backgroundColor: "#c9e882"
@@ -40,10 +42,12 @@ var gNotes = [{
     isPinned: false,
     createdAt: 1604486482321,
     info: {
-        title: "How was it:",
         todos: [
-            { id: utilService.makeId(3), txt: "Do that", doneAt: null },
-            { id: utilService.makeId(3), txt: "Do this", doneAt: 187111111 }]
+            { id: utilService.makeId(3), txt: "Do that", isDone: false },
+            { id: utilService.makeId(3), txt: "Do this", isDone: true }]
+    },
+    style: {
+        backgroundColor: null,
     }
 },
 {
@@ -53,14 +57,32 @@ var gNotes = [{
     createdAt: 1604486467965,
     info: {
         url: "https://www.youtube.com/embed/28jL8w_9M1U",
-        title: "Leonard Cohen Greatest Hits"
+    },
+    style: {
+        backgroundColor: null,
     }
 }
 ];
 
 function getNotes() {
+    let notes = utilService.loadFromStorage(KEY);
+    if (!notes || !notes.length) {
+        notes = gNotes;
+        saveNotes()
+    }
+    gNotes = notes;
     return Promise.resolve(gNotes)
 }
+
+// _loadNotes()
+// function _loadNotes() {
+//     // notes = gNotes;
+//     saveNotes();
+//     return gNotes
+// }
+// gNotes = notes;
+// return notes
+// }
 
 function addNote(note) {
     gNotes.unshift(note)
@@ -88,30 +110,30 @@ function updateNote(note) {
 
 function getNoteById(id) {
     const note = gNotes.find(note => note.id === id)
+    // console.log(note);
     return Promise.resolve(note)
 }
 
-function getTodoById(todoId) {
-    const todo = gNotes.find(todo => todo.id === todoId)
-    return Promise.resolve(todo)
-}
-
-function doTodo(todo) {
-    todo.doneAt = new Date().getTime()
-    return todo
-}
+// function getTodoById(todoId) {
+//     const todo = gNotes.find(todo => todo.id === todoId)
+//     return Promise.resolve(todo)
+// }
 
 function saveNotes() {
     utilService.storeToStorage('notesDB', gNotes)
 }
 
+function getTodoDone(noteId, idx) {
+    console.log(idx);
+    getNoteById(noteId)
+        .then(note => {
+            // console.log(note.info.todos[idx]);
+            // console.log(note);
+            note.info.todos[idx].isDone = !note.info.todos[idx].isDone;
+            saveNotes()
+        });
+}
+
+
 // private functions
 
-_loadNotes()
-function _loadNotes() {
-    let notes = utilService.loadFromStorage(KEY);
-    if (!notes || !notes.length) {
-        notes = gNotes;
-        saveNotes();
-    }
-}

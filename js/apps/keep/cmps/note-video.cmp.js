@@ -4,7 +4,6 @@ export default {
     template: `
         <section class="note-video">
             <p class="note-type">//VIDEO</p>
-            <h2 v-if="note.info.title">{{note.info.title}}</h2>
             <iframe width="200" height="115" :src="'//www.youtube.com/embed/'+getVideoId"></iframe>
         </section>
     `,
