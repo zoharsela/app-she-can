@@ -2,9 +2,9 @@ export default {
     name: 'note-video',
     props: ['note'],
     template: `
-        <section class="note-video">
-            <p class="note-type">//VIDEO</p>
-            <iframe width="200" height="115" :src="'//www.youtube.com/embed/'+getVideoId"></iframe>
+        <section class="note-content">
+            <span class="note-type">//VIDEO</span>
+            <iframe class="note-video" width="200" height="115" :src="'//www.youtube.com/embed/'+getVideoId"></iframe>
         </section>
     `,
     data() {

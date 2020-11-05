@@ -7,7 +7,8 @@ export const keepService = {
     deleteNote,
     updateNote,
     saveNotes,
-    getTodoDone
+    getTodoDone,
+    togglePin
 }
 
 const KEY = 'notesDB'
@@ -74,19 +75,10 @@ function getNotes() {
     return Promise.resolve(gNotes)
 }
 
-// _loadNotes()
-// function _loadNotes() {
-//     // notes = gNotes;
-//     saveNotes();
-//     return gNotes
-// }
-// gNotes = notes;
-// return notes
-// }
-
 function addNote(note) {
     gNotes.unshift(note)
     saveNotes()
+    return gNotes
 }
 
 function deleteNote(id) {
@@ -110,25 +102,24 @@ function updateNote(note) {
 
 function getNoteById(id) {
     const note = gNotes.find(note => note.id === id)
-    // console.log(note);
     return Promise.resolve(note)
 }
 
-// function getTodoById(todoId) {
-//     const todo = gNotes.find(todo => todo.id === todoId)
-//     return Promise.resolve(todo)
-// }
+function togglePin(noteId) {
+    const note = getNoteById(noteId)
+        .then(note => {
+            note.isPinned = !note.isPinned
+            saveNotes()
+        })
+}
 
 function saveNotes() {
     utilService.storeToStorage('notesDB', gNotes)
 }
 
 function getTodoDone(noteId, idx) {
-    console.log(idx);
     getNoteById(noteId)
         .then(note => {
-            // console.log(note.info.todos[idx]);
-            // console.log(note);
             note.info.todos[idx].isDone = !note.info.todos[idx].isDone;
             saveNotes()
         });

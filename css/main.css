@@ -18,6 +18,7 @@
 @import 'apps/keep/keep-app.cmp.css';
 @import 'apps/keep/notes-preview.cmp.css';
 @import 'apps/keep/add-note.cmp.css';
+@import 'apps/keep/edit-note.cmp.css';
 /* general, temporary, fonts are not decided yet but will be nicer to watch */
 
 * {
@@ -70,7 +71,7 @@ body {
 
 .icon {
     font-size: 1.3rem;
-    color: rgb(45, 45, 45);
+    color: rgb(70, 70, 70);
     cursor: pointer;
 }
 
@@ -93,5 +94,5 @@ input {
     font-family: Roboto;
     width: 15rem;
     border: 1px solid rgb(164, 164, 164);
-    padding: 0.1rem;
+    padding: 0.2rem;
 }

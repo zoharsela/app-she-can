@@ -7,7 +7,12 @@ export default {
   template: `<section class="note-list flex wrap">
                    <ul class="notes-list flex wrap">
                     <li v-for="note in notes" :key="note.id">
-                      <notes-preview :note="note"></notes-preview>
+                      <notes-preview :note="note" v-if="note.isPinned"></notes-preview>
+                   </li>
+                   </ul>
+                   <ul class="notes-list flex wrap">
+                   <li v-for="note in notes" :key="note.id">
+                      <notes-preview :note="note" v-if="!note.isPinned"></notes-preview>
                    </li>
                   </ul>
             </section>
