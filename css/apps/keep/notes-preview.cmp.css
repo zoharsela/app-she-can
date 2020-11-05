@@ -37,11 +37,6 @@ button.delete-btn {
     border: none;
 }
 
-.icon {
-    font-size: 1.3rem;
-    color: rgb(45, 45, 45);
-}
-
 .notes-list {
     width: 100%;
     display: flex;
@@ -54,4 +49,12 @@ button.delete-btn {
 
 p.note-type {
     font-size: 0.85rem;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+.not-done {
+    text-decoration: none;
 }
