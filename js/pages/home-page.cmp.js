@@ -10,7 +10,7 @@ export default {
                 Get your shit done, or don't. <br>
                 Do whatever the fuck you want. 
                 but DO IT RIGHT.<br> because yes, you can.</h4>
-                <button class="hero-button">Start Living Right</button>
+                <button @click="scrollTo" class="hero-button">Start Living Right</button>
             </div>
             <div class="second-part-homepage">
                <img class="unicorn-img" src="assets/img/homepage/unicorn.png"/>
@@ -24,5 +24,12 @@ export default {
                 <h2>But now it's easier.</h2>
             </div>
          </section>
-    `
+    `,
+    mounted() {
+    },
+    methods: {
+        scrollTo() {
+            window.scrollTo({ top: 860, behavior: 'smooth' });
+        }
+    }
 }

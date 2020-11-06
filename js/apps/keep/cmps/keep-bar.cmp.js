@@ -10,7 +10,7 @@ export default {
         <button class="add-note-btn fab fa-youtube" @click="changeNoteType('noteVideo')"></button>
         <button class="add-note-btn fas fa-list-ul" @click="changeNoteType('noteTodos')"></button>
         <input ref="noteInput" @keyup.enter="addNote" class="add-input" :placeholder="getTextForInput" type="text" v-model="addInput"/>
-        <button class="add-note-btn fas fa-search"></button>
+        <button class="add-note-btn search-bar fas fa-search"></button>
         <input class="add-input" placeholder="Looking for something specific?" @input.stop="emitFilter" type="text" v-model="searchTerm"/>
         </section>
         `,
