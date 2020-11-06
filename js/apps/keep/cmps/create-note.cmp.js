@@ -41,7 +41,7 @@ export default {
         case 'noteTodos':
           return 'Enter Comma Separated List'
         default:
-          return 'Pick Note Type'
+          return 'Pick note type'
       }
     }
   },
