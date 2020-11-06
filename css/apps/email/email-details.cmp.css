@@ -2,6 +2,14 @@
     flex-flow: column;
     width: 400px;
     margin-left: 50px;
+    justify-content: center;
+    border: 1px solid rgb(34, 34, 34);
+    margin-top: 50px;
+}
+
+.email-container{
+    flex-direction: column;
+    align-self: center;
 }
 
 .email-details-container h4 {
@@ -23,5 +31,12 @@
     border:2px solid green;
     color: green;
     padding: 10px 20px;
+    background-color: white;
 
+}
+
+a {
+    justify-content: space-between;
+    display: inline-flex;
+    margin-top: 50px;
 }

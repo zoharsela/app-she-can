@@ -1,0 +1,9 @@
+.choose-category {
+    flex-direction: column;
+    color: grey;
+    box-shadow: honeydew;
+}
+
+i {
+    padding: 5px;
+}

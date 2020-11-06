@@ -3,6 +3,7 @@
 import emailApp from './apps/mail/pages/email-app.cmp.js';
 import emailDetails from './apps/mail/pages/email-details.cmp.js';
 import keepApp from './apps/keep/keep-app.cmp.js';
+import emailSideNavCmp from './apps/mail/cmps/email-side-nav.cmp.js';
 
 
 
@@ -27,6 +28,10 @@ const myRoutes = [
     {
         path: '/keep',
         component: keepApp,
+    },
+    {
+        path: '/email/??',///////////
+        component: emailSideNavCmp,
     },
 ]
 

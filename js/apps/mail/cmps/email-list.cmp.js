@@ -1,3 +1,4 @@
+import { emailService } from '../services/email-service.js'
 import emailPreview from './email-preview.cmp.js'
 
 export default {
@@ -19,8 +20,24 @@ export default {
           },
         goToEmail(emailId) {
             this.$router.push(`/email/${emailId}`)
-        }
+        },
+        // getEmailsCategory(){
+        // const {emailFilter } = this.$route.params
+        //     if (emailId) {
+        //         emailService.getEmailsCategory(inboxFilter)
+        //             .then(emails => this.emails = emails)
+        //     }},
+        // getEmailsCategory(){
+        //     console.log(this.$routs.params.inboxFilter);
+        //     emailService.getEmailsCategory(this.$routs.params.inboxFilter)
+        //     .then(emails => {
+        //         this.emails = emails
+        //     })
+        // }
     },
+    // created() {
+    //    this.getEmailsCategory()
+    // },
     components: {
         emailPreview
     }

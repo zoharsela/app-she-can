@@ -9,7 +9,7 @@ export default {
         <form @submit.prevent="sendEmail" class="compose-form flex">
             <div class="compose-header flex">
                 <h3>New Message</h3>
-                <span><button @click="close"><i class="fas fa-times"></i></button></span>
+                <span><button @click="close" class="button-reset"><i class="fas fa-times"></i></button></span>
             </div>
             <div class="compose-body flex">
             <input class="form-text flex" type="text" v-model.trim="email.to" placeholder="To:" required/>
@@ -17,25 +17,43 @@ export default {
             <textarea class="form-Text-body flex" type="text" v-model.trim="email.body"></textarea> 
             </div>
             <div class="form-btns flex">
-                <button class="send-btn" @click="sendEmail(email)"><i class="far fa-paper-plane"></i></button>
-                <button class="delete-btn" @click="close"><i class="fas fa-trash"></i></button>
+                <button class="send-btn button-reset" @click="sendEmail(email)"><i class="far fa-paper-plane"></i></button>
+                <button class="delete-btn button-reset" @click="close"><i class="fas fa-trash"></i></button>
+                <button class="draft-btn button-reset" v-if="!isDraft" @click="saveDraft"><i class="far fa-save"></i></button>
             </div>
         </form>
     </section>
     `,
     data() {
         return {
-            email: { subject: '', body: '', isRead: false, sentAt: new Date() },
+            email: {
+                sentTo: 'Me',
+                subject: '',
+                body: '',
+                isRead: false,
+                sentAt: new Date(),
+                sentEmail: false,
+                isDraft: false,
+                isMarked: false,
+                isDeleted: false
+            },
         }
     },
     methods: {
         sendEmail() {
+            if (this.isDraft) {
+                this.email.isDraft = false;
+            }
+            this.email.sentEmail = true;
             emailService.sendEmail(this.email)
                 .then(() => eventBus.$emit('show-msg', 'Email was successfully Added'))
             close()
         },
         close() {
             this.$emit('closeCompose')
+        },
+        saveDraft() {
+            this.email.isDraft = true;
         }
     }
 }
