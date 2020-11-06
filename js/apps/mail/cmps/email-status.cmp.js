@@ -1,19 +1,28 @@
-import emailPreview from './email-preview.cmp.js'
+import { emailService } from '../services/email-service.js'
 
 export default {
-    props: ['emails'],
-    name: 'emailList',
+    name: 'emailStatus',
     template: `
-    <section class="email-list-container">
-        <ul>
-            <li v-for="(email, idx) in emails" :key="email.id">
-                <email-preview :email="email">{{email.isRead}}
-                    </email-preview>
-                </li>
-            </ul>
+    <section class="email-status-container">
+        <h2>{{emailsUnreadCount}}</h2>
     </section>
     `,
-    components: {
-        emailPreview
+    data() {
+        return {
+            emailsUnread: ''
+        }
+    },
+    computed: {
+        emailsUnreadCount() {
+            return this.emailsUnread
+        }
+    },
+    methods: {
+        countEmails() {
+            this.emailsUnread = emailService.countEmailsRead()
+        }
+    },
+    created() {
+        this.countEmails()
     }
 }

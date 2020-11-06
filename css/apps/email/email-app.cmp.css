@@ -1,7 +1,26 @@
+
+nav {
+    margin-left: 10px;
+}
+.email-app-container {
+    margin-top: 10px;
+}
+
+.email-app-side-container {
+    flex-direction: column;
+    width: max-content;
+}
+
+.email-line:hover{
+    cursor: pointer;
+}
+
+
 .email-filter {
     display: flex;
     height: 30px;
     margin-left: 50px;
+    margin-top: 5px;
 }
 
 .email-filter input {
@@ -19,7 +38,7 @@
 
 .email-list-container {
     background-color: rgb(224, 224, 224);
-    width: 800px;
+    width: 100%;
     margin-left: 50px;
 }
 
