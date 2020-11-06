@@ -22,8 +22,10 @@ export default {
         <div class="email-body flex">
             <p>{{email.body}}</p>
             <!-- <router-link to="/" class="return-btn"> -->
-            <i class="fas fa-arrow-left"></i>
+            <div class="email-details-btn flex">
+            <button @click="returnBack" class="button-reset return-btn"><i  class="fas fa-arrow-left"></i></button>
             <button @click="deleteEmail(email.id)" class="button-reset"> <i class="fas fa-trash"></i></button>
+            </div>
         <!-- </router-link> -->
         </div>
         </div>
@@ -51,6 +53,9 @@ export default {
             emailService.deleteEmail(emailId)
                 .then(() => eventBus.$emit('show-msg', 'Email was successfully Deleted'))
                 .catch(err => console.log('something went wrong', err))
+        },
+        returnBack(){
+            this.$router.push('/email/inbox')
         }
     },
     created() {

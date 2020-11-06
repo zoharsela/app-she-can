@@ -20,12 +20,10 @@
     color: rgb(151, 151, 151);
 }
 
+.email-details-btn {
+    justify-content: space-between;
+}
+
 .email-body {
     flex-direction: column;
 }
-
-/* a {
-    justify-content: space-between;
-    display: inline-flex;
-    margin-top: 50px;
-} */

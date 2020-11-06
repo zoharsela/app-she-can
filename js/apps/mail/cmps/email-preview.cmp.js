@@ -6,7 +6,7 @@ export default {
     template: `
             <router-link to="'/email/'+emailsCategory+'/'+email.id" exact @click.stop="open">
     <section class="email-preview">
-        <div class="email-line flex" :class="{read: email.isRead}">
+        <div class="email-line flex" :class="{read: email.isRead}" v-if="!emaildeleted">
             <i v-if="!email.isStarred" @click.stop.prevent="starClicked" class="far fa-star"></i>
             <i v-if="email.isStarred" @click.stop.prevent="starClickedRemove" class="fas fa-star"></i>
            <h4>{{email.senderName}} | <span>{{email.subject}} | <small>{{emailText}}</small> <small>{{email.sentAt}}</small></span></h4>
@@ -20,7 +20,8 @@ export default {
     data() {
         return {
             isOpen: false,
-            emailsCategory: this.$route.params.emailsCategory
+            emailsCategory: this.$route.params.emailsCategory,
+            emaildeleted: false
         }
     },
     methods: {
@@ -31,6 +32,7 @@ export default {
             emailService.changeToIsRead(this.email.id)
         },
         deleteEmail(emailId) {
+            this.emaildeleted = true;
             emailService.deleteEmail(emailId)
                 .then(() => eventBus.$emit('show-msg', 'Email was successfully Deleted'))
                 .catch(err => console.log('something went wrong', err))

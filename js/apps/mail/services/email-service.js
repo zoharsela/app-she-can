@@ -32,7 +32,7 @@ function getEmails() {
 function getEmailsDeleted(){
     gEmailsDelete = utilService.loadFromStorage(STORAGE_KEY_DELETED);
     if (!gEmailsDelete || !gEmailsDelete.length) {
-        gEmails = [];
+        gEmailsDelete = [];
         utilService.storeToStorage(STORAGE_KEY_DELETED, gEmailsDelete);
     }
     return gEmailsDelete;
@@ -138,7 +138,7 @@ function _createEmail() {
         body: 'We are happy to work with you!',
         isRead: false,
         sentAt: 'May 28',
-        sentEmail: false,
+        sentEmail: true,
         isDraft: false,
         isStarred: false,
         isDeleted: false
@@ -152,7 +152,7 @@ function _createEmail() {
         isRead: false,
         sentAt: 'May 28',
         sentEmail: false,
-        isDraft: false,
+        isDraft: true,
         isStarred: false,
         isDeleted: false
     },

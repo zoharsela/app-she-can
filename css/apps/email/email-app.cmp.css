@@ -13,6 +13,10 @@
     width: max-content;
 }
 
+.side-nav {
+    height: 80vh;
+}
+
 .email-line:hover {
     cursor: pointer;
 }
