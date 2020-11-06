@@ -18,7 +18,7 @@ export default {
             </div>
             <div class="form-btns flex">
                 <button class="send-btn button-reset" @click="sendEmail(email)"><i class="far fa-paper-plane"></i></button>
-                <button class="draft-btn button-reset" v-if="!isDraft" @click.stop="saveDraft"><i class="far fa-save"></i></button>
+                <button class="draft-btn button-reset" @click.stop="saveDraft"><i class="far fa-save"></i></button>
                 <button class="delete-btn button-reset" @click="close"><i class="fas fa-trash"></i></button>
             </div>
         </form>
@@ -58,3 +58,4 @@ export default {
         }
     }
 }
+// v-if="!isDraft" 

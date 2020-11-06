@@ -19,8 +19,8 @@ export default {
             </div>
             </nav>
             <email-list @selected="setSelectedEmail" :emails="emailsToShow" v-if="emails" @readEmail=""></email-list>
-        </div>
         <email-compose @closeCompose="newEmail" :addNewEmail="isEmailCompose"></email-compose>
+        </div>
     </section>
   `,
     data() {

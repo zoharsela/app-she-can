@@ -9,8 +9,8 @@ export default {
             <router-link :to="'/email/'+emailsCategory+'/'+email.id"  @click.stop="open"></router-link>
             <!-- <input type="checkbox" class="checkbox">
             <label for="checkbox"></label> -->
-            <i v-if="email.isStarred" @click.stop="starClicked" class="far fa-star" :class="onStarClicked"></i>
-            <i v-if="!email.isStarred" @click.stop="starClickedRemove" class="fas fa-star mr-5 ml-5" :class="onStarClicked"></i>
+            <i v-if="!email.isStarred" @click.stop="starClicked" class="far fa-star"></i>
+            <i v-if="email.isStarred" @click.stop="starClickedRemove" class="fas fa-star"></i>
            <h4>{{email.senderName}} | <span>{{email.subject}} | <small>{{emailText}}</small> <small>{{email.sentAt}}</small></span></h4>
            <button  class="button-reset email-list-btn flex" @click.stop="deleteEmail(email.id)"> <i class="fas fa-trash"></i></button>
            <button class="button-reset email-list-btn flex" @click.stop="markedEmail"><i v-if="!email.isRead" class="far fa-envelope" :class="{read: email.isRead}"></i>
@@ -49,10 +49,11 @@ export default {
         emailText() {
             return this.email.body.length > 50 ? this.email.body.substring(0, 49) + '...' : this.email.body;
         },
-        onStarClicked() {
-            return {starred: (this.email.isStarred)}
-        }
+        // onStarClicked() {
+        //     return {starred: (this.email.isStarred)}
+        // }
     }
 }
 
 //far fa-paper-plane
+// :class="onStarClicked"

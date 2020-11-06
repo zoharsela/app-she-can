@@ -37,7 +37,7 @@ function _createEmail() {
         sentAt: 'Oct 28',
         sentEmail: false,
         isDraft: false,
-        isStarred: true,
+        isStarred: false,
         isDeleted: false
     },
     {
@@ -63,7 +63,7 @@ function _createEmail() {
         sentAt: 'May 28',
         sentEmail: false,
         isDraft: false,
-        isStarred: false,
+        isStarred: true,
         isDeleted: false
     },
     {
@@ -76,7 +76,7 @@ function _createEmail() {
         sentAt: 'Jun 28',
         sentEmail: false,
         isDraft: false,
-        isStarred: false,
+        isStarred: true,
         isDeleted: false
     }
     ]
@@ -150,7 +150,7 @@ function getEmailsCategory(emailsCategory = 'inbox'){
     }
     if(emailsCategory === 'star'){
         let star = gEmails.filter(email => {
-            return email.isMarked
+            return email.isStarred
         })
         return Promise.resolve(star);
     }
