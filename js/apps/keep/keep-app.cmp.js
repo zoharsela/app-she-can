@@ -25,12 +25,10 @@ export default {
   computed: {
     notesToShow() {
       if (!this.filterBy) return this.notes;
-      // const { byName, fromPrice, toPrice } = this.filterBy
-      // return this.books.filter(book => {
-      //   return book.title.toLowerCase().includes(byName.toLowerCase()) &&
-      //     book.price >= fromPrice &&
-      //     book.price < toPrice
-      // })
+      return this.notes.filter(note => {
+        if (!note.info.txt) return
+        return note.info.txt.toLowerCase().includes(this.filterBy.toLowerCase())
+      })
     },
   },
   created() {

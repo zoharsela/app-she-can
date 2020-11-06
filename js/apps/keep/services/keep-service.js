@@ -29,7 +29,7 @@ var gNotes = [{
 {
     id: utilService.makeId(),
     type: "noteTodos",
-    isPinned: true,
+    isPinned: false,
     createdAt: 1604486482321,
     isEdited: false,
     lastEdited: null,

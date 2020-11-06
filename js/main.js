@@ -5,13 +5,14 @@ import mainFooter from './cmps/footer.cmp.js'
 import { myRouter } from './routes.js'
 import userMsg from './cmps/user-msg.cmp.js'
 import homePage from './pages/home-page.cmp.js'
+import aboutUs from './pages/about-page.cmp.js'
 
 
 const options = {
     el: '#app',
     router: myRouter,
     template: `
-        <section>
+        <section class="container">
             <main>
             <nav-bar></nav-bar>
             <router-view>
@@ -22,13 +23,13 @@ const options = {
         </section>
     `,
     components: {
-        // appHeader,
         userMsg,
         navBar,
         emailApp,
         keepApp,
         homePage,
-        mainFooter
+        mainFooter,
+        aboutUs
     }
 }
 
