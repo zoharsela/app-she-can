@@ -1,13 +1,11 @@
 footer {
-    height: 6rem;
+    height: 10rem;
     position: relative;
     bottom: 0;
     flex-direction: column;
     justify-items: center;
     align-items: center;
     border-top: 1px solid rgba(128, 128, 128, 0.198);
-    padding: 1rem;
-    margin-bottom: 1rem;
     font-size: 0.85rem;
 }
 

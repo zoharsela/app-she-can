@@ -20,8 +20,7 @@ var gNotes = [{
     isEdited: true,
     lastEdited: 1604496524773,
     info: {
-        title: 'Lama lo',
-        txt: "VeLama Ken",
+        txt: "Lama lo VeLama Ken",
     },
     style: {
         backgroundColor: '#f07c65',
@@ -98,8 +97,7 @@ var gNotes = [{
     isEdited: true,
     lastEdited: 1603496524773,
     info: {
-        title: 'What if',
-        txt: "JS could listen to what i say and just follow",
+        txt: "What if JS could listen to what i say and just follow",
     },
     style: {
         backgroundColor: '#fff',
@@ -175,14 +173,14 @@ function addNote(note) {
     }
     gNotes.unshift(note)
     saveNotes()
-    return gNotes
+    return Promise.resolve(gNotes)
 }
 
 function deleteNote(id) {
     const noteIdx = getNoteIdx(id)
     gNotes.splice(noteIdx, 1)
     saveNotes()
-    return gNotes
+    return Promise.resolve(gNotes)
 }
 
 function getNoteIdx(id) {
@@ -210,6 +208,7 @@ function togglePin(noteId) {
             note.isPinned = !note.isPinned
             saveNotes()
         })
+    return Promise.resolve(gNotes)
 }
 
 function saveNotes() {

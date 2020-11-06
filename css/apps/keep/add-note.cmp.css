@@ -29,11 +29,19 @@
     width: 25rem;
     padding: 0.3rem;
     height: 1.8rem;
-    font-family: roboto;
+    font-family: dosis;
     font-size: 1rem;
     letter-spacing: 2px;
     /* border: 1px solid rgba(128, 128, 128, 0.358); */
     border: none;
     outline: none;
     margin-left: 0.8rem;
+}
+
+.add-input:first-of-type {
+    margin-right: 8rem;
+}
+
+.add-input:last-of-type {
+    width: 20rem;
 }

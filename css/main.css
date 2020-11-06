@@ -6,6 +6,7 @@
 @import 'general/nav.css';
 @import 'general/homepage.css';
 @import 'general/footer.css';
+@import 'general/user-msg.css';
 /* homePage cmps */
 
 /* SheMail cmps */
@@ -71,6 +72,7 @@ body {
     border: none;
     outline: none;
     display: inline;
+    padding: 0;
 }
 
 .icon {

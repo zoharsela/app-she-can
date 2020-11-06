@@ -5,9 +5,7 @@ export default {
         <section class="note-text" @blur="updateNote()">
             <template>
                  <p class="note-type">//TEXT</p>
-                <h2 @click="isToEdit=true" v-if="note.info.title" contenteditable>{{note.info.title}}</h2>
-                <h4 @click="isToEdit=true" v-if="note.info.txt" contenteditable >{{note.info.txt}}</h4>
-                <button class="update-note-btn" v-if="isToEdit" @click="updateNote">Save Changes</button>
+                <h4 @blur="updateNote" @click="isToEdit=true" v-if="note.info.txt" contenteditable >{{note.info.txt}}</h4>
             </template>
         </section>
     `,
@@ -18,10 +16,10 @@ export default {
     },
     methods: {
         updateNote() {
-            this.note.info.title = document.querySelector('.note-text h2').innerText
-            this.note.info.txt = document.querySelector('.note-text h4').innerText
+            this.note.info.txt = event.target.innerText
             eventBus.$emit(EVENT_UPDATE_NOTE, this.note)
             this.isToEdit = false;
         },
     }
 }
+

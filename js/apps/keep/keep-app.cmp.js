@@ -1,22 +1,37 @@
 import { keepService } from './services/keep-service.js'
 import notesList from './cmps/notes-list.cmp.js'
-import createNote from './cmps/create-note.cmp.js'
+import keepBar from './cmps/keep-bar.cmp.js'
+import userMsg from '../../cmps/user-msg.cmp.js';
 import { eventBus, EVENT_DELETE_NOTE, EVENT_UPDATE_NOTE, EVENT_DO_TODO, EVENT_TOGGLE_PIN, EVENT_ADD_NOTE } from '../../services/event-bus.js'
 
 export default {
   template: `<section class="keep-app container">
-                <create-note class="add-note"></create-note></div>
-                <notes-list :notes="notes"></notes-list>
+                <keep-bar class="add-note" @filtered="setFilter"></keep-bar></div>
+                <notes-list :notes="notesToShow"></notes-list>
+                <user-msg/>
             </section>
   `,
   components: {
     notesList,
-    createNote
+    keepBar,
+    userMsg
   },
   data() {
     return {
       notes: null,
+      filterBy: null,
     }
+  },
+  computed: {
+    notesToShow() {
+      if (!this.filterBy) return this.notes;
+      // const { byName, fromPrice, toPrice } = this.filterBy
+      // return this.books.filter(book => {
+      //   return book.title.toLowerCase().includes(byName.toLowerCase()) &&
+      //     book.price >= fromPrice &&
+      //     book.price < toPrice
+      // })
+    },
   },
   created() {
     keepService.getNotes()
@@ -31,19 +46,28 @@ export default {
   methods: {
     deleteNote(noteId) {
       keepService.deleteNote(noteId)
+        .then(() => eventBus.$emit('show-msg', 'Note was deleted successfully'))
     },
     addNote(noteToAdd) {
       keepService.addNote(noteToAdd)
+        .then(() => eventBus.$emit('show-msg', 'Note was added successfully'))
     },
     doTodo(noteId, idx) {
       keepService.getTodoDone(noteId, idx)
     },
     togglePin(noteId) {
       keepService.togglePin(noteId)
+        .then(() => eventBus.$emit('show-msg', 'Note was changed successfully'))
     },
     updateNote(note) {
       keepService.updateNote(note)
-        .then(notes => this.notes = notes)
+        .then(notes => {
+          this.notes = notes
+          eventBus.$emit('show-msg', 'Note was edited successfully')
+        })
+    },
+    setFilter(filterBy) {
+      this.filterBy = filterBy
     }
   }
 }

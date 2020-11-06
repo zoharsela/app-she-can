@@ -2,7 +2,7 @@ import { eventBus, EVENT_ADD_NOTE } from '../../../services/event-bus.js'
 
 export default {
   props: ["notes"],
-  name: 'create-note',
+  name: 'bar-note',
   template: `
     <section class="container">
         <button class="add-note-btn fas fa-font" @click="changeNoteType('noteText')""></button>
@@ -10,15 +10,17 @@ export default {
         <button class="add-note-btn fab fa-youtube" @click="changeNoteType('noteVideo')"></button>
         <button class="add-note-btn fas fa-list-ul" @click="changeNoteType('noteTodos')"></button>
         <input ref="noteInput" @keyup.enter="addNote" class="add-input" :placeholder="getTextForInput" type="text" v-model="addInput"/>
+        <button class="add-note-btn fas fa-search"></button>
+        <input class="add-input" placeholder="Looking for something specific?" @input.stop="emitFilter" type="text" v-model="searchTerm"/>
         </section>
         `,
   data() {
     return {
       addInput: null,
+      searchTerm: null,
       noteToAdd: {
         type: '',
         info: {
-          title: null,
           txt: null,
           url: null,
           todos: []
@@ -74,7 +76,6 @@ export default {
       this.noteToAdd = {
         type: 'noteText',
         info: {
-          title: null,
           txt: null,
           url: null,
           todos: []
@@ -83,6 +84,9 @@ export default {
     },
     changeNoteType(type) {
       this.noteToAdd.type = type;
+    },
+    emitFilter() {
+      this.$emit('filtered', this.searchTerm);
     },
   }
 }
