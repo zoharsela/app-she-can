@@ -20,7 +20,8 @@ export default {
     `,
     data() {
         return {
-            isOpen: false
+            isOpen: false,
+            emailsCategory: this.$route.params.emailsCategory
         }
     },
     methods: {

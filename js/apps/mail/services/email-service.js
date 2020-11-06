@@ -22,8 +22,8 @@ function getEmails() {
         gEmails = _createEmail()
         utilService.storeToStorage(STORAGE_KEY, gEmails);
     }
-    gCountUnread = gEmails.length;
-    return Promise.resolve(gEmails);
+    // gCountUnread = gEmails.length;
+    return gEmails;
 }
 
 function _createEmail() {
@@ -98,7 +98,7 @@ function changeToIsRead(emailId) {
 }
 
 function deleteEmail(emailId) {
-    console.log(emailId);
+    console.log(gEmails);
     const idx = gEmails.findIndex(currEmail => currEmail.id === emailId);
     gEmails.splice(idx, 1);
     utilService.storeToStorage(STORAGE_KEY, gEmails);
@@ -131,30 +131,30 @@ function starEmail(emailId){
     }))
 }
 
-function getEmailsCategory(emailsCategory = 'Inbox'){
+function getEmailsCategory(emailsCategory = 'inbox'){
     console.log(emailsCategory);
-    if(emailsCategory === 'Inbox') {
+    if(emailsCategory === 'inbox') {
         return Promise.resolve(gEmails);
     }
-    if(emailsCategory === 'Sent'){
+    if(emailsCategory === 'sent'){
         let sent = gEmails.filter(email => {
             return email.sentEmail
         })
         return Promise.resolve(sent);
     }
-    if(emailsFilterRoute === 'Draft'){
+    if(emailsCategory === 'draft'){
         let draft = gEmails.filter(email => {
             return email.isDraft
         })
         return Promise.resolve(draft);
     }
-    if(emailsFilterRoute === 'Star'){
+    if(emailsCategory === 'star'){
         let star = gEmails.filter(email => {
             return email.isMarked
         })
         return Promise.resolve(star);
     }
-    if(emailsFilterRoute === 'Deleted'){
+    if(emailsCategory === 'deleted'){
         let deleted = gEmails.filter(email => {
             return email.isDeleted
         })

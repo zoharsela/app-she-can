@@ -29,10 +29,11 @@ export default {
             filterBy: null,
             selectedEmail: null,
             isEmailCompose: null,
-            emailsCategory: 'Inbox'
+            emailsCategory: this.$route.params.emailsCategory
         }
     },
     created() {
+        console.log(this.emailsCategory);
         this.isEmailCompose = false;
         emailService.getEmailsCategory(this.emailsCategory)
             .then(emails => this.emails = emails)
