@@ -1,7 +1,9 @@
 import { utilService } from '../../../services/util-service.js'
 const STORAGE_KEY = 'emailsDB';
+const STORAGE_KEY_DELETED = 'emailsdeletedDB';
 
 var gEmails = getEmails();
+var gEmailsDelete = getEmailsDeleted();
 // var gCountUnread = 0;
 
 
@@ -25,6 +27,15 @@ function getEmails() {
     }
     // gCountUnread = gEmails.length;
     return gEmails;
+}
+
+function getEmailsDeleted(){
+    gEmailsDelete = utilService.loadFromStorage(STORAGE_KEY_DELETED);
+    if (!gEmailsDelete || !gEmailsDelete.length) {
+        gEmails = [];
+        utilService.storeToStorage(STORAGE_KEY_DELETED, gEmailsDelete);
+    }
+    return gEmailsDelete;
 }
 
 function _createEmail() {
@@ -89,7 +100,7 @@ function _createEmail() {
         isRead: false,
         sentAt: 'May 28',
         sentEmail: false,
-        isDraft: false,
+        isDraft: true,
         isStarred: true,
         isDeleted: false
     },
@@ -275,7 +286,9 @@ function draftEmail(emailId){
 }
 
 function deleteEmail(emailId) {
-    console.log(gEmails);
+    var email = gEmails.find(email => email.id === emailId);
+    gEmailsDelete.push(email)
+    utilService.storeToStorage(STORAGE_KEY_DELETED, gEmailsDelete);
     const idx = gEmails.findIndex(currEmail => currEmail.id === emailId);
     gEmails.splice(idx, 1);
     utilService.storeToStorage(STORAGE_KEY, gEmails);
@@ -288,17 +301,6 @@ function sendEmail(email) {
     return Promise.resolve()
 }
 
-// function countEmailsRead(){
-//     let unreadEmails = gEmails.filter(email => {
-//         return (!email.isRead && !email.sentEmail)
-//     })
-//     if(unreadEmails.length){
-//         return `You have ${unreadEmails.length} unread emails`;
-//     } else {
-//         return 'No unreads emails'
-//     }
-// }
-
 function starEmail(emailId){
     return Promise.resolve(getEmailById(emailId)
     .then(email => {
@@ -307,7 +309,7 @@ function starEmail(emailId){
     }))
 }
 
-function getEmailsCategory(emailsCategory = 'inbox'){
+function getEmailsCategory(emailsCategory){
     console.log(emailsCategory);
     if(emailsCategory === 'inbox') {
         let inbox = gEmails.filter(email => {
@@ -334,9 +336,18 @@ function getEmailsCategory(emailsCategory = 'inbox'){
         return Promise.resolve(star);
     }
     if(emailsCategory === 'deleted'){
-        let deleted = gEmails.filter(email => {
-            return email.isDeleted
-        })
-        return Promise.resolve(deleted);
+        console.log(gEmailsDelete);
+        return Promise.resolve(gEmailsDelete);
     }
 }
+
+// function countEmailsRead(){
+//     let unreadEmails = gEmails.filter(email => {
+//         return (!email.isRead && !email.sentEmail)
+//     })
+//     if(unreadEmails.length){
+//         return `You have ${unreadEmails.length} unread emails`;
+//     } else {
+//         return 'No unreads emails'
+//     }
+// }
