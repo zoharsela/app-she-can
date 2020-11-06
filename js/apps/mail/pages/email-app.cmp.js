@@ -14,7 +14,7 @@ export default {
          <div class="email-app-container flex">
             <nav class="nav-email flex">
             <div class="email-app-side-container flex">
-            <button @click="newEmail"><i class="fas fa-plus"></i></button>
+            <button @click="newEmail" class="button-reset"><i class="fas fa-plus"></i></button>
             <email-side-nav></email-side-nav>
             </div>
             </nav>
@@ -29,7 +29,7 @@ export default {
             filterBy: null,
             selectedEmail: null,
             isEmailCompose: null,
-            emailsCategory: 'All'
+            emailsCategory: 'Inbox'
         }
     },
     created() {

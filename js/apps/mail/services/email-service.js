@@ -2,7 +2,7 @@ import { utilService } from '../../../services/util-service.js'
 const STORAGE_KEY = 'emailsDB';
 
 var gEmails = getEmails();
-var gCountUnread = 0;
+// var gCountUnread = 0;
 
 
 export const emailService = {
@@ -131,17 +131,14 @@ function starEmail(emailId){
     }))
 }
 
-function getEmailsCategory(emailsFilterRoute = 'All'){
-    console.log(emailsFilterRoute);
-    if(emailsFilterRoute === 'Inbox') {
-        let inbox = gEmails.filter(email => {
-            return (!email.sentEmail && !email.isDeleted && !email.isDraft)
-        })
-        return Promise.resolve(inbox);
+function getEmailsCategory(emailsCategory = 'Inbox'){
+    console.log(emailsCategory);
+    if(emailsCategory === 'Inbox') {
+        return Promise.resolve(gEmails);
     }
-    if(emailsFilterRoute === 'Sent'){
+    if(emailsCategory === 'Sent'){
         let sent = gEmails.filter(email => {
-            return (email.sentEmail && !email.isDeleted && !email.isDraft)
+            return email.sentEmail
         })
         return Promise.resolve(sent);
     }
@@ -163,8 +160,4 @@ function getEmailsCategory(emailsFilterRoute = 'All'){
         })
         return Promise.resolve(deleted);
     }
-    if(emailsFilterRoute === 'All'){
-            return Promise.resolve(gEmails);
-        }
-    
 }
