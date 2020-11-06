@@ -42,6 +42,8 @@
     background-color: rgb(243, 243, 243);
     width: 100%;
     margin-left: 50px;
+    height: 80vh;
+    overflow: auto;
 }
 
 .email-list-container ul li {

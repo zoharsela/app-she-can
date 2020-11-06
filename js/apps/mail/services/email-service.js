@@ -10,9 +10,10 @@ export const emailService = {
     changeToIsRead,
     deleteEmail,
     sendEmail,
-    countEmailsRead,
+    // countEmailsRead,
     getEmailsCategory,
-    starEmail
+    starEmail,
+    draftEmail
 }
 
 function getEmails() {
@@ -78,7 +79,176 @@ function _createEmail() {
         isDraft: false,
         isStarred: true,
         isDeleted: false
-    }
+    },
+    {
+        id: utilService.makeId(),
+        senderName: 'Itay A',
+        sentTo: 'Me',
+        subject: 'You are the best!',
+        body: 'We are happy to work with you!',
+        isRead: false,
+        sentAt: 'May 28',
+        sentEmail: false,
+        isDraft: false,
+        isStarred: true,
+        isDeleted: false
+    },
+    {
+        id: utilService.makeId(),
+        senderName: 'Itay A',
+        sentTo: 'Me',
+        subject: 'You are the best!',
+        body: 'We are happy to work with you!',
+        isRead: false,
+        sentAt: 'May 28',
+        sentEmail: false,
+        isDraft: false,
+        isStarred: false,
+        isDeleted: false
+    },
+    {
+        id: utilService.makeId(),
+        senderName: 'Itay A',
+        sentTo: 'Me',
+        subject: 'You are the best!',
+        body: 'We are happy to work with you!',
+        isRead: false,
+        sentAt: 'May 28',
+        sentEmail: false,
+        isDraft: false,
+        isStarred: false,
+        isDeleted: false
+    },
+    {
+        id: utilService.makeId(),
+        senderName: 'Itay A',
+        sentTo: 'Me',
+        subject: 'You are the best!',
+        body: 'We are happy to work with you!',
+        isRead: false,
+        sentAt: 'May 28',
+        sentEmail: false,
+        isDraft: false,
+        isStarred: false,
+        isDeleted: false
+    },
+    {
+        id: utilService.makeId(),
+        senderName: 'Itay A',
+        sentTo: 'Me',
+        subject: 'You are the best!',
+        body: 'We are happy to work with you!',
+        isRead: false,
+        sentAt: 'May 28',
+        sentEmail: false,
+        isDraft: false,
+        isStarred: false,
+        isDeleted: false
+    },
+    {
+        id: utilService.makeId(),
+        senderName: 'Itay A',
+        sentTo: 'Me',
+        subject: 'You are the best!',
+        body: 'We are happy to work with you!',
+        isRead: false,
+        sentAt: 'May 28',
+        sentEmail: false,
+        isDraft: false,
+        isStarred: false,
+        isDeleted: false
+    },
+    {
+        id: utilService.makeId(),
+        senderName: 'Itay A',
+        sentTo: 'Me',
+        subject: 'You are the best!',
+        body: 'We are happy to work with you!',
+        isRead: false,
+        sentAt: 'May 28',
+        sentEmail: false,
+        isDraft: false,
+        isStarred: false,
+        isDeleted: false
+    },
+    {
+        id: utilService.makeId(),
+        senderName: 'Itay A',
+        sentTo: 'Me',
+        subject: 'You are the best!',
+        body: 'We are happy to work with you!',
+        isRead: false,
+        sentAt: 'May 28',
+        sentEmail: false,
+        isDraft: false,
+        isStarred: false,
+        isDeleted: false
+    },
+    {
+        id: utilService.makeId(),
+        senderName: 'Itay A',
+        sentTo: 'Me',
+        subject: 'You are the best!',
+        body: 'We are happy to work with you!',
+        isRead: false,
+        sentAt: 'May 28',
+        sentEmail: false,
+        isDraft: false,
+        isStarred: false,
+        isDeleted: false
+    },
+    {
+        id: utilService.makeId(),
+        senderName: 'Itay A',
+        sentTo: 'Me',
+        subject: 'You are the best!',
+        body: 'We are happy to work with you!',
+        isRead: false,
+        sentAt: 'May 28',
+        sentEmail: false,
+        isDraft: false,
+        isStarred: false,
+        isDeleted: false
+    },
+    {
+        id: utilService.makeId(),
+        senderName: 'Itay A',
+        sentTo: 'Me',
+        subject: 'You are the best!',
+        body: 'We are happy to work with you!',
+        isRead: false,
+        sentAt: 'May 28',
+        sentEmail: false,
+        isDraft: false,
+        isStarred: false,
+        isDeleted: false
+    },
+    {
+        id: utilService.makeId(),
+        senderName: 'Itay A',
+        sentTo: 'Me',
+        subject: 'You are the best!',
+        body: 'We are happy to work with you!',
+        isRead: false,
+        sentAt: 'May 28',
+        sentEmail: false,
+        isDraft: false,
+        isStarred: false,
+        isDeleted: false
+    },
+    {
+        id: utilService.makeId(),
+        senderName: 'Itay A',
+        sentTo: 'Me',
+        subject: 'You are the best!',
+        body: 'We are happy to work with you!',
+        isRead: false,
+        sentAt: 'May 28',
+        sentEmail: false,
+        isDraft: false,
+        isStarred: false,
+        isDeleted: false
+    },
     ]
 }
 
@@ -97,6 +267,13 @@ function changeToIsRead(emailId) {
     utilService.storeToStorage(STORAGE_KEY, gEmails);
 }
 
+function draftEmail(emailId){
+    console.log(emailId);
+    var email = gEmails.find(email => email.id === emailId);
+    email.isDraft = true;
+    utilService.storeToStorage(STORAGE_KEY, gEmails);
+}
+
 function deleteEmail(emailId) {
     console.log(gEmails);
     const idx = gEmails.findIndex(currEmail => currEmail.id === emailId);
@@ -106,22 +283,21 @@ function deleteEmail(emailId) {
 }
 
 function sendEmail(email) {
-    email.id = utilService.makeId();
     gEmails.push(email);
     utilService.storeToStorage(STORAGE_KEY, gEmails);
     return Promise.resolve()
 }
 
-function countEmailsRead(){
-    let unreadEmails = gEmails.filter(email => {
-        return (!email.isRead && !email.sentEmail)
-    })
-    if(unreadEmails.length){
-        return `You have ${unreadEmails.length} unread emails`;
-    } else {
-        return 'No unreads emails'
-    }
-}
+// function countEmailsRead(){
+//     let unreadEmails = gEmails.filter(email => {
+//         return (!email.isRead && !email.sentEmail)
+//     })
+//     if(unreadEmails.length){
+//         return `You have ${unreadEmails.length} unread emails`;
+//     } else {
+//         return 'No unreads emails'
+//     }
+// }
 
 function starEmail(emailId){
     return Promise.resolve(getEmailById(emailId)
@@ -134,7 +310,10 @@ function starEmail(emailId){
 function getEmailsCategory(emailsCategory = 'inbox'){
     console.log(emailsCategory);
     if(emailsCategory === 'inbox') {
-        return Promise.resolve(gEmails);
+        let inbox = gEmails.filter(email => {
+            return (!email.isDraft)
+        })
+        return Promise.resolve(inbox);
     }
     if(emailsCategory === 'sent'){
         let sent = gEmails.filter(email => {

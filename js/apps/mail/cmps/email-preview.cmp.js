@@ -4,19 +4,18 @@ export default {
     props: ['email'],
     name: 'emailPreview',
     template: `
+            <router-link to="'/email/'+emailsCategory+'/'+email.id" exact @click.stop="open">
     <section class="email-preview">
         <div class="email-line flex" :class="{read: email.isRead}">
-            <router-link :to="'/email/'+emailsCategory+'/'+email.id"  @click.stop="open"></router-link>
-            <!-- <input type="checkbox" class="checkbox">
-            <label for="checkbox"></label> -->
-            <i v-if="!email.isStarred" @click.stop="starClicked" class="far fa-star"></i>
-            <i v-if="email.isStarred" @click.stop="starClickedRemove" class="fas fa-star"></i>
+            <i v-if="!email.isStarred" @click.stop.prevent="starClicked" class="far fa-star"></i>
+            <i v-if="email.isStarred" @click.stop.prevent="starClickedRemove" class="fas fa-star"></i>
            <h4>{{email.senderName}} | <span>{{email.subject}} | <small>{{emailText}}</small> <small>{{email.sentAt}}</small></span></h4>
-           <button  class="button-reset email-list-btn flex" @click.stop="deleteEmail(email.id)"> <i class="fas fa-trash"></i></button>
-           <button class="button-reset email-list-btn flex" @click.stop="markedEmail"><i v-if="!email.isRead" class="far fa-envelope" :class="{read: email.isRead}"></i>
+           <button  class="button-reset email-list-btn flex" @click.stop.prevent="deleteEmail(email.id)"> <i class="fas fa-trash"></i></button>
+           <button class="button-reset email-list-btn flex" @click.stop.prevent="markedEmail"><i v-if="!email.isRead" class="far fa-envelope" :class="{read: email.isRead}"></i>
            <i v-if="email.isRead" class="far fa-envelope-open"></i></button>
         </div>
     </section>
+           </router-link>
     `,
     data() {
         return {
@@ -49,9 +48,6 @@ export default {
         emailText() {
             return this.email.body.length > 50 ? this.email.body.substring(0, 49) + '...' : this.email.body;
         },
-        // onStarClicked() {
-        //     return {starred: (this.email.isStarred)}
-        // }
     }
 }
 

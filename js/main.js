@@ -1,4 +1,5 @@
 import emailApp from '../js/apps/mail/pages/email-app.cmp.js'
+import emailDetails from '../js/apps/mail/pages/email-details.cmp.js'
 import keepApp from '../js/apps/keep/keep-app.cmp.js'
 import navBar from './cmps/nav.cmp.js'
 import mainFooter from './cmps/footer.cmp.js'
@@ -28,7 +29,8 @@ const options = {
         emailApp,
         keepApp,
         homePage,
-        mainFooter
+        mainFooter,
+        emailDetails
     }
 }
 

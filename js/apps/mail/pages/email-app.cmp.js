@@ -43,6 +43,7 @@ export default {
             this.emailsCategory = this.$route.params.emailsCategory
             emailService.getEmailsCategory(this.emailsCategory)
                 .then((emails) => {
+                    console.log(emails);
                     this.emails = emails;
                 })
         }
@@ -67,6 +68,7 @@ export default {
                 const txt = this.filterBy.text.toLowerCase();
                 return this.emails.filter(email => {
                     let currFilter = this.filterBy.status;
+                    console.log(currFilter);
                     if (currFilter === 'byAll') {
                         currFilter = email.isRead
                     }

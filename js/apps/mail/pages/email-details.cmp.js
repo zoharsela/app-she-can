@@ -6,7 +6,7 @@ import emailSideNav from '../cmps/email-side-nav.cmp.js';
 export default {
     name: 'emailDetails',
     template: `
-    <section v-if="email">
+    <section>
     <email-filter @filtered="setFilter"></email-filter>
          <div class="email-app-container flex">
             <nav class="flex">
@@ -21,10 +21,10 @@ export default {
         <h4 class="flex">From: {{email.senderName}} <span>Sent At: {{email.sentAt}}</span></h4>
         <div class="email-body flex">
             <p>{{email.body}}</p>
-            <router-link to="/email" class="return-btn">
+            <!-- <router-link to="/" class="return-btn"> -->
             <i class="fas fa-arrow-left"></i>
             <button @click="deleteEmail(email.id)" class="button-reset"> <i class="fas fa-trash"></i></button>
-        </router-link>
+        <!-- </router-link> -->
         </div>
         </div>
         </div>
@@ -37,12 +37,16 @@ export default {
     },
     methods: {
         getEmail() {
-        const emailId = this.$route.params.id
-        console.log(emailId);
-        emailService.getEmailById(emailId)
-            .then(email => this.email = email)
+            const emailId = this.$route.params.emailId
+            console.log(emailId);
+            emailService.getEmailById(emailId)
+                .then(email => {
+                    this.email = email
+                    this.email.isRead = true
+                })
         },
         deleteEmail(emailId) {
+            this.$router.push('/email/inbox')
             this.email = !this.email;
             emailService.deleteEmail(emailId)
                 .then(() => eventBus.$emit('show-msg', 'Email was successfully Deleted'))
@@ -51,7 +55,6 @@ export default {
     },
     created() {
         this.getEmail()
-        emailService.changeToIsRead(this.$route.params.id)
     },
     components: {
         emailFilter,

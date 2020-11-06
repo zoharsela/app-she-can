@@ -1,5 +1,6 @@
 import { emailService } from '../services/email-service.js'
 import { eventBus } from '../../../services/event-bus.js'
+import { utilService } from '../../../services/util-service.js'
 
 export default {
     props: ['addNewEmail'],
@@ -17,9 +18,9 @@ export default {
             <textarea class="form-text-body flex" type="text" v-model.trim="email.body"></textarea> 
             </div>
             <div class="form-btns flex">
-                <button class="send-btn button-reset" @click="sendEmail(email)"><i class="far fa-paper-plane"></i></button>
-                <button class="draft-btn button-reset" @click.stop="saveDraft"><i class="far fa-save"></i></button>
-                <button class="delete-btn button-reset" @click="close"><i class="fas fa-trash"></i></button>
+                <button class="send-btn button-reset" @click.stop.prevent="sendEmail(email)"><i class="far fa-paper-plane"></i></button>
+                <button class="draft-btn button-reset" @click.stop.prevent="saveDraft"><i class="far fa-save"></i></button>
+                <button class="delete-btn button-reset" @click.stop.prevent="close"><i class="fas fa-trash"></i></button>
             </div>
         </form>
     </section>
@@ -27,11 +28,12 @@ export default {
     data() {
         return {
             email: {
+                id: utilService.makeId(),
                 sentTo: 'Me',
                 subject: '',
                 body: '',
                 isRead: false,
-                sentAt: new Date().toLocaleTimeString().substring(0,5),
+                sentAt: new Date().toLocaleTimeString().substring(0,4),
                 sentEmail: false,
                 isDraft: false,
                 isStarred: false,
@@ -53,7 +55,9 @@ export default {
             this.$emit('closeCompose')
         },
         saveDraft() {
-            this.email.isDraft = true;
+            console.log(this.email.id);
+            emailService.sendEmail(this.email)
+            emailService.draftEmail(this.email.id)
             this.close()
         }
     }
