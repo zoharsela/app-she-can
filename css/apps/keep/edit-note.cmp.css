@@ -1,0 +1,16 @@
+button.update-note-btn {
+    background-color: rgba(255, 255, 255, 0.551);
+    font-family: inherit;
+    outline: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.4rem;
+    border: 1px solid #9191914b;
+    margin-top: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+p.edit-time {
+    font-size: 0.9rem;
+    /* margin-top: 3rem; */
+}

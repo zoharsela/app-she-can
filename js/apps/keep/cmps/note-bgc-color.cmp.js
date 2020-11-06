@@ -5,6 +5,7 @@ export default {
   props: ['notes'],
   name: 'notes-bgc',
   template: `<section class="color-setter">
+                <button class="color-pick pointer" @click="emitColor(null)" style="background-color: #fff; border: 1px solid gray">.</button>
                 <button class="color-pick pointer" @click="emitColor('#8293e8')" style="background-color: #8293e8">.</button>
                 <button class="color-pick pointer" @click="emitColor('#f0658c')" style="background-color: #f0658c">.</button>
                 <button class="color-pick pointer" @click="emitColor('#f07c65')" style="background-color: #f07c65">.</button>

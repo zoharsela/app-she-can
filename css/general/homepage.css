@@ -1,0 +1,119 @@
+div.hero-img {
+    background-image: url('../../assets/img/homepage/hero.jpg');
+    width: 1200px;
+    height: 800px;
+    display: grid;
+    font-family: dosis;
+    grid-template-columns: repeat(15, 80px);
+    grid-template-rows: repeat(18, 50px);
+}
+
+.hero-img>* {
+    padding: 0;
+    margin: 0;
+}
+
+div .hero-title {
+    display: unset;
+    grid-column: 7 / span 9;
+    grid-row: 5;
+    letter-spacing: 2px;
+    font-size: 3.5rem;
+    padding-left: 2.4rem;
+}
+
+h2.hero-subtitle {
+    grid-column: 7 / span 7;
+    grid-row: 6;
+    padding-left: 2.9rem;
+    letter-spacing: 6px;
+    font-family: dosis;
+    font-size: 2rem;
+    margin-top: 2rem;
+}
+
+.hero-desc {
+    grid-column: 7 / span 9;
+    grid-row: 7 / span 4;
+    line-height: 1.9rem;
+    letter-spacing: 2px;
+    font-family: roboto;
+    font-size: 1.1rem;
+    margin-top: 2.2rem;
+    padding-left: 2.9rem;
+}
+
+.hero-button {
+    padding: 5px;
+    grid-column: 7/ span 4;
+    grid-row: 10;
+    height: 2.5rem;
+    margin-left: 2.9rem;
+    margin-top: 1.3rem;
+    background-color: transparent;
+    color: rgb(41, 41, 41);
+    border: 2px solid rgba(31, 31, 31, 0.751);
+    font-family: dosis;
+    font-size: 1.1rem;
+    font-weight: bolder;
+    letter-spacing: 3px;
+    border-radius: 5px;
+    transition: all .5s;
+    outline: none;
+}
+
+.hero-button:hover {
+    color: rgba(101, 83, 90, 0.851);
+    border: 2px solid rgba(101, 83, 90, 0.851);
+}
+
+/* second-part */
+
+.second-part-homepage {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    height: 80vh;
+}
+
+img.unicorn-img {
+    max-width: 60%;
+}
+
+.second-part-homepage h2 {
+    color: rgb(59, 59, 59);
+    letter-spacing: 4px;
+    font-size: 1.4rem;
+    line-height: 3rem;
+}
+
+.second-part-homepage span {
+    color: rgb(245, 101, 168);
+}
+
+/* third-part */
+
+.third-part-homepage {
+    height: 53rem;
+    background-color: rgba(221, 221, 221, 0.555);
+}
+
+.third-part-homepage h1 {
+    font-family: hotel;
+    font-size: 9rem;
+    color: rgb(245, 101, 168);
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+    padding-top: 15rem;
+}
+
+.third-part-homepage h2 {
+    font-family: dosis;
+    text-align: center;
+    font-size: 3rem;
+    padding: 0;
+    margin: 0;
+}

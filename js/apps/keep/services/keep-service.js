@@ -7,7 +7,8 @@ export const keepService = {
     deleteNote,
     updateNote,
     saveNotes,
-    getTodoDone
+    getTodoDone,
+    togglePin
 }
 
 const KEY = 'notesDB'
@@ -16,9 +17,11 @@ var gNotes = [{
     type: "noteText",
     isPinned: true,
     createdAt: 1604486514773,
+    isEdited: false,
+    lastEdited: null,
     info: {
         title: 'whoot',
-        txt: "Fullstack Me Baby!"
+        txt: "Fullstack Me Baby!",
     },
     style: {
         backgroundColor: null,
@@ -29,6 +32,8 @@ var gNotes = [{
     type: "noteImg",
     isPinned: false,
     createdAt: 1604486494659,
+    isEdited: false,
+    lastEdited: null,
     info: {
         url: "https://images.unsplash.com/photo-1516636052745-e142aecffd0c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80",
     },
@@ -41,6 +46,8 @@ var gNotes = [{
     type: "noteTodos",
     isPinned: false,
     createdAt: 1604486482321,
+    isEdited: false,
+    lastEdited: null,
     info: {
         todos: [
             { id: utilService.makeId(3), txt: "Do that", isDone: false },
@@ -55,6 +62,8 @@ var gNotes = [{
     id: utilService.makeId(),
     isPinned: true,
     createdAt: 1604486467965,
+    isEdited: false,
+    lastEdited: null,
     info: {
         url: "https://www.youtube.com/embed/28jL8w_9M1U",
     },
@@ -74,19 +83,10 @@ function getNotes() {
     return Promise.resolve(gNotes)
 }
 
-// _loadNotes()
-// function _loadNotes() {
-//     // notes = gNotes;
-//     saveNotes();
-//     return gNotes
-// }
-// gNotes = notes;
-// return notes
-// }
-
 function addNote(note) {
     gNotes.unshift(note)
     saveNotes()
+    return gNotes
 }
 
 function deleteNote(id) {
@@ -102,6 +102,8 @@ function getNoteIdx(id) {
 }
 
 function updateNote(note) {
+    note.isEdited = true;
+    note.lastEdited = new Date().getTime()
     const noteIdx = getNoteIdx(note.id)
     gNotes.splice(noteIdx, 1, note)
     saveNotes()
@@ -110,30 +112,26 @@ function updateNote(note) {
 
 function getNoteById(id) {
     const note = gNotes.find(note => note.id === id)
-    // console.log(note);
     return Promise.resolve(note)
 }
 
-// function getTodoById(todoId) {
-//     const todo = gNotes.find(todo => todo.id === todoId)
-//     return Promise.resolve(todo)
-// }
+function togglePin(noteId) {
+    const note = getNoteById(noteId)
+        .then(note => {
+            note.isPinned = !note.isPinned
+            saveNotes()
+        })
+}
 
 function saveNotes() {
     utilService.storeToStorage('notesDB', gNotes)
 }
 
 function getTodoDone(noteId, idx) {
-    console.log(idx);
     getNoteById(noteId)
         .then(note => {
-            // console.log(note.info.todos[idx]);
-            // console.log(note);
             note.info.todos[idx].isDone = !note.info.todos[idx].isDone;
             saveNotes()
         });
 }
-
-
-// private functions
 

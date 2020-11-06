@@ -5,7 +5,7 @@ export default {
     template: `
         <section v-show="msg" class="user-msg">
             <p>{{msg}}</p>
-            <button @click="msg=null">x</button>
+            <button class="button-reset" @click="msg=null">x</button>
         </section>
     `,
     data() {

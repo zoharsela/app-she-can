@@ -1,4 +1,4 @@
-// import homePage from '../pages/home-page.js';
+import homePage from './pages/home-page.cmp.js';
 // import aboutPage from '../pages/about-page.js';
 import emailApp from './apps/mail/pages/email-app.cmp.js';
 import emailDetails from './apps/mail/pages/email-details.cmp.js';
@@ -9,10 +9,10 @@ import emailSideNavCmp from './apps/mail/cmps/email-side-nav.cmp.js';
 
 
 const myRoutes = [
-    // {
-    //     path: '/',
-    //     component: homePage
-    // },
+    {
+        path: '/',
+        component: homePage
+    },
     // {
     //     path: '/about',
     //     component: aboutPage

@@ -22,7 +22,7 @@ export default {
             <email-list @selected="setSelectedEmail" :emails="emailsToShow" v-if="emails" @readEmail=""></email-list>
             <email-compose @closeCompose="newEmail" :addNewEmail="isEmailCompose"></email-compose>
         </div>
-        <!-- <user-msg/> -->
+        <user-msg/>
     </section>
   `,
     data() {
@@ -48,9 +48,9 @@ export default {
         newEmail() {
             this.isEmailCompose = !this.isEmailCompose;
         },
-        markAsRead(emailId, countUnread){
-        var countUnread = emailService.changeToIsRead(emailId)
-    }
+        markAsRead(emailId, countUnread) {
+            var countUnread = emailService.changeToIsRead(emailId)
+        }
     },
     computed: {
         emailsToShow() {
