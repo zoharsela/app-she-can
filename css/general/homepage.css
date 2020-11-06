@@ -63,8 +63,8 @@ h2.hero-subtitle {
 }
 
 .hero-button:hover {
-    color: rgba(101, 83, 90, 0.851);
-    border: 2px solid rgba(101, 83, 90, 0.851);
+    color: rgba(65, 54, 58, 0.851);
+    border: 2px solid rgba(65, 54, 58, 0.851);
 }
 
 /* second-part */

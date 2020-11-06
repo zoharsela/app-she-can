@@ -5,8 +5,7 @@ import { eventBus, EVENT_DELETE_NOTE, EVENT_UPDATE_NOTE, EVENT_DO_TODO, EVENT_TO
 
 export default {
   template: `<section class="keep-app container">
-              <div class="add-note"><button class="button-reset add-note" @click="isToCreate =!isToCreate"><i class="icon far fa-sticky-note"></i></button>
-                <create-note class="add-note" v-if="isToCreate" @closeAdder="closeAdder"></create-note></div>
+                <create-note class="add-note"></create-note></div>
                 <notes-list :notes="notes"></notes-list>
             </section>
   `,
@@ -17,7 +16,6 @@ export default {
   data() {
     return {
       notes: null,
-      isToCreate: false
     }
   },
   created() {
@@ -42,9 +40,6 @@ export default {
     },
     togglePin(noteId) {
       keepService.togglePin(noteId)
-    },
-    closeAdder() {
-      this.isToCreate = false;
     },
     updateNote(note) {
       keepService.updateNote(note)

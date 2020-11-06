@@ -15,16 +15,34 @@ const KEY = 'notesDB'
 var gNotes = [{
     id: utilService.makeId(),
     type: "noteText",
-    isPinned: true,
+    isPinned: false,
     createdAt: 1604486514773,
+    isEdited: true,
+    lastEdited: 1604496524773,
+    info: {
+        title: 'Lama lo',
+        txt: "VeLama Ken",
+    },
+    style: {
+        backgroundColor: '#f07c65',
+    }
+},
+{
+    id: utilService.makeId(),
+    type: "noteTodos",
+    isPinned: true,
+    createdAt: 1604486482321,
     isEdited: false,
     lastEdited: null,
     info: {
-        title: 'whoot',
-        txt: "Fullstack Me Baby!",
+        txt: null,
+        todos: [
+            { id: utilService.makeId(3), txt: "Find Job", isDone: false },
+            { id: utilService.makeId(3), txt: "Get Life", isDone: false },
+            { id: utilService.makeId(3), txt: "Be Polania", isDone: true }]
     },
     style: {
-        backgroundColor: null,
+        backgroundColor: '#8293e8',
     }
 },
 {
@@ -43,24 +61,54 @@ var gNotes = [{
 },
 {
     id: utilService.makeId(),
-    type: "noteTodos",
-    isPinned: false,
-    createdAt: 1604486482321,
+    type: "noteVideo",
+    isPinned: true,
+    createdAt: 1608886467965,
     isEdited: false,
     lastEdited: null,
     info: {
-        todos: [
-            { id: utilService.makeId(3), txt: "Do that", isDone: false },
-            { id: utilService.makeId(3), txt: "Do this", isDone: true }]
+        url: "https://www.youtube.com/watch?v=zLAhRiUeJ8E&ab_channel=OhWonderMusicVEVO",
     },
     style: {
-        backgroundColor: null,
+        backgroundColor: '#f0658c',
     }
 },
 {
-    type: "noteVideo",
     id: utilService.makeId(),
+    type: "noteTodos",
     isPinned: true,
+    createdAt: 1604486482321,
+    isEdited: true,
+    lastEdited: 1607486482321,
+    info: {
+        txt: null,
+        todos: [
+            { id: utilService.makeId(3), txt: "Buy Milk", isDone: false },
+            { id: utilService.makeId(3), txt: "Call Bituach Leumi", isDone: true }]
+    },
+    style: {
+        backgroundColor: '#e3d76b',
+    }
+},
+{
+    id: utilService.makeId(),
+    type: "noteText",
+    isPinned: false,
+    createdAt: 1604686514773,
+    isEdited: true,
+    lastEdited: 1603496524773,
+    info: {
+        title: 'What if',
+        txt: "JS could listen to what i say and just follow",
+    },
+    style: {
+        backgroundColor: '#fff',
+    }
+},
+{
+    id: utilService.makeId(),
+    type: "noteVideo",
+    isPinned: false,
     createdAt: 1604486467965,
     isEdited: false,
     lastEdited: null,
@@ -68,9 +116,42 @@ var gNotes = [{
         url: "https://www.youtube.com/embed/28jL8w_9M1U",
     },
     style: {
-        backgroundColor: null,
+        backgroundColor: '#82e8cd',
     }
-}
+},
+
+{
+    id: utilService.makeId(),
+    type: "noteImg",
+    isPinned: true,
+    createdAt: 1624386494659,
+    isEdited: false,
+    lastEdited: null,
+    info: {
+        url: "https://images.unsplash.com/photo-1505628346881-b72b27e84530?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+    },
+    style: {
+        backgroundColor: "#fff"
+    },
+},
+{
+    id: utilService.makeId(),
+    type: "noteTodos",
+    isPinned: false,
+    createdAt: 1602486482321,
+    isEdited: false,
+    lastEdited: null,
+    info: {
+        txt: null,
+        todos: [
+            { id: utilService.makeId(3), txt: "Living is easy", isDone: false },
+            { id: utilService.makeId(3), txt: "With Eyes close", isDone: false },
+            { id: utilService.makeId(3), txt: "Misunderstanding all you see", isDone: true }]
+    },
+    style: {
+        backgroundColor: '#e3d76b',
+    }
+},
 ];
 
 function getNotes() {
@@ -84,6 +165,14 @@ function getNotes() {
 }
 
 function addNote(note) {
+    note.id = utilService.makeId();
+    note.isPinned = false;
+    note.createdAt = new Date().getTime();
+    note.isEdited = false;
+    note.lastEdited = null;
+    note.style = {
+        backgroundColor: null
+    }
     gNotes.unshift(note)
     saveNotes()
     return gNotes

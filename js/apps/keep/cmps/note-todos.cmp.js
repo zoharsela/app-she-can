@@ -32,6 +32,7 @@ export default {
             return todo.isDone ? 'done' : 'not-done';
         },
         updateNote() {
+            console.log(this.note.id);
             var newTodos = document.querySelectorAll('.note-todos .todo')
             for (let i = 0; i < newTodos.length; i++) {
                 this.note.info.todos[i].txt = newTodos[i].innerText
