@@ -2,6 +2,7 @@
 .nav-email {
     margin-left: 10px;
 }
+
 .email-app-container {
     margin-top: 10px;
 }
@@ -11,10 +12,9 @@
     width: max-content;
 }
 
-.email-line:hover{
+.email-line:hover {
     cursor: pointer;
 }
-
 
 .email-filter {
     display: flex;
@@ -59,14 +59,4 @@
 
 .checkbox {
     position: fixed;
-}
-
-.user-msg {
-    position: absolute;
-    top: 0;
-    right: 20px;
-    border-radius: 10px;
-    border: 2px solid green;
-    color: green;
-    padding: 10px 20px;
 }
