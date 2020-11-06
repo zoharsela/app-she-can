@@ -1,13 +1,12 @@
 import { utilService } from '../../../services/util-service.js'
 const STORAGE_KEY = 'emailsDB';
 
-var gEmails;
-var gCountUnread = 0;
+var gEmails = getEmails();
+// var gCountUnread = 0;
 
 
 export const emailService = {
     getEmailById,
-    getEmails,
     changeToIsRead,
     deleteEmail,
     sendEmail,
@@ -20,12 +19,11 @@ function getEmails() {
     gEmails = utilService.loadFromStorage(STORAGE_KEY);
     console.log(gEmails);
     if (!gEmails || !gEmails.length) {
-        console.log('11');
         gEmails = _createEmail()
         utilService.storeToStorage(STORAGE_KEY, gEmails);
     }
-    gCountUnread = gEmails.length;
-    return Promise.resolve(gEmails);
+    // gCountUnread = gEmails.length;
+    return gEmails;
 }
 
 function _createEmail() {
@@ -39,7 +37,7 @@ function _createEmail() {
         sentAt: 'Oct 28',
         sentEmail: false,
         isDraft: false,
-        isMarked: true,
+        isStarred: false,
         isDeleted: false
     },
     {
@@ -52,7 +50,7 @@ function _createEmail() {
         sentAt: 'Jun 28',
         sentEmail: false,
         isDraft: false,
-        isMarked: true,
+        isStarred: true,
         isDeleted: false
     },
     {
@@ -65,7 +63,7 @@ function _createEmail() {
         sentAt: 'May 28',
         sentEmail: false,
         isDraft: false,
-        isMarked: false,
+        isStarred: true,
         isDeleted: false
     },
     {
@@ -78,7 +76,7 @@ function _createEmail() {
         sentAt: 'Jun 28',
         sentEmail: false,
         isDraft: false,
-        isMarked: false,
+        isStarred: true,
         isDeleted: false
     }
     ]
@@ -100,6 +98,7 @@ function changeToIsRead(emailId) {
 }
 
 function deleteEmail(emailId) {
+    console.log(gEmails);
     const idx = gEmails.findIndex(currEmail => currEmail.id === emailId);
     gEmails.splice(idx, 1);
     utilService.storeToStorage(STORAGE_KEY, gEmails);
@@ -132,33 +131,30 @@ function starEmail(emailId){
     }))
 }
 
-function getEmailsCategory(emailsFilterRoute){
-    console.log(emailsFilterRoute);
-    if(emailsFilterRoute === 'Inbox') {
-        let inbox = gEmails.filter(email => {
-            return (!email.sentEmail && !email.isDeleted && !email.isDraft)
-        })
-        return Promise.resolve(inbox);
+function getEmailsCategory(emailsCategory = 'inbox'){
+    console.log(emailsCategory);
+    if(emailsCategory === 'inbox') {
+        return Promise.resolve(gEmails);
     }
-    if(emailsFilterRoute === 'Sent'){
+    if(emailsCategory === 'sent'){
         let sent = gEmails.filter(email => {
-            return (email.sentEmail && !email.isDeleted && !email.isDraft)
+            return email.sentEmail
         })
         return Promise.resolve(sent);
     }
-    if(emailsFilterRoute === 'Draft'){
+    if(emailsCategory === 'draft'){
         let draft = gEmails.filter(email => {
             return email.isDraft
         })
         return Promise.resolve(draft);
     }
-    if(emailsFilterRoute === 'Star'){
+    if(emailsCategory === 'star'){
         let star = gEmails.filter(email => {
-            return email.isMarked
+            return email.isStarred
         })
         return Promise.resolve(star);
     }
-    if(emailsFilterRoute === 'Deleted'){
+    if(emailsCategory === 'deleted'){
         let deleted = gEmails.filter(email => {
             return email.isDeleted
         })

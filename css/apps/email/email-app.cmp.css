@@ -1,5 +1,7 @@
-nav {
+
+.nav-email {
     margin-left: 10px;
+    justify-content: space-evenly;
 }
 
 .email-app-container {
@@ -36,12 +38,14 @@ nav {
 }
 
 .email-list-container {
-    background-color: rgb(224, 224, 224);
+    justify-content: center;
+    background-color: rgb(243, 243, 243);
     width: 100%;
     margin-left: 50px;
 }
 
 .email-list-container ul li {
+    height: 55px;
     border-top: 1px solid rgb(236, 236, 236);
     border-bottom: 1px solid rgb(236, 236, 236);
 }
