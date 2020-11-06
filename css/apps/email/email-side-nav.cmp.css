@@ -4,6 +4,22 @@
     box-shadow: honeydew;
 }
 
-i {
+.fa-inbox {
+    padding: 5px;
+}
+
+.fa-paper-plane {
+    padding: 5px;
+}
+
+.fa-sticky-note {
+    padding: 5px;
+}
+
+.fa-star {
+    padding: 5px;
+}
+
+.fa-trash {
     padding: 5px;
 }

@@ -6,7 +6,7 @@ export default {
     template: `
     <section class="email-preview">
         <div class="email-line flex" :class="{read: email.isRead}">
-            <router-link :to="'/email/' +email.id"  @click.stop="open"></router-link>
+            <router-link :to="'/email/'+emailsCategory+'/'+email.id"  @click.stop="open"></router-link>
             <!-- <input type="checkbox" class="checkbox">
             <label for="checkbox"></label> -->
             <i v-if="email.isStarred" @click.stop="starClicked" class="far fa-star" :class="onStarClicked"></i>

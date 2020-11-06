@@ -1,13 +1,12 @@
 import { utilService } from '../../../services/util-service.js'
 const STORAGE_KEY = 'emailsDB';
 
-var gEmails;
+var gEmails = getEmails();
 var gCountUnread = 0;
 
 
 export const emailService = {
     getEmailById,
-    getEmails,
     changeToIsRead,
     deleteEmail,
     sendEmail,
@@ -20,7 +19,6 @@ function getEmails() {
     gEmails = utilService.loadFromStorage(STORAGE_KEY);
     console.log(gEmails);
     if (!gEmails || !gEmails.length) {
-        console.log('11');
         gEmails = _createEmail()
         utilService.storeToStorage(STORAGE_KEY, gEmails);
     }
@@ -39,7 +37,7 @@ function _createEmail() {
         sentAt: 'Oct 28',
         sentEmail: false,
         isDraft: false,
-        isMarked: true,
+        isStarred: true,
         isDeleted: false
     },
     {
@@ -52,7 +50,7 @@ function _createEmail() {
         sentAt: 'Jun 28',
         sentEmail: false,
         isDraft: false,
-        isMarked: true,
+        isStarred: true,
         isDeleted: false
     },
     {
@@ -65,7 +63,7 @@ function _createEmail() {
         sentAt: 'May 28',
         sentEmail: false,
         isDraft: false,
-        isMarked: false,
+        isStarred: false,
         isDeleted: false
     },
     {
@@ -78,7 +76,7 @@ function _createEmail() {
         sentAt: 'Jun 28',
         sentEmail: false,
         isDraft: false,
-        isMarked: false,
+        isStarred: false,
         isDeleted: false
     }
     ]
@@ -100,6 +98,7 @@ function changeToIsRead(emailId) {
 }
 
 function deleteEmail(emailId) {
+    console.log(emailId);
     const idx = gEmails.findIndex(currEmail => currEmail.id === emailId);
     gEmails.splice(idx, 1);
     utilService.storeToStorage(STORAGE_KEY, gEmails);
@@ -132,7 +131,7 @@ function starEmail(emailId){
     }))
 }
 
-function getEmailsCategory(emailsFilterRoute){
+function getEmailsCategory(emailsFilterRoute = 'All'){
     console.log(emailsFilterRoute);
     if(emailsFilterRoute === 'Inbox') {
         let inbox = gEmails.filter(email => {
@@ -164,4 +163,8 @@ function getEmailsCategory(emailsFilterRoute){
         })
         return Promise.resolve(deleted);
     }
+    if(emailsFilterRoute === 'All'){
+            return Promise.resolve(gEmails);
+        }
+    
 }
