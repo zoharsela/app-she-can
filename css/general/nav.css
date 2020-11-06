@@ -1,5 +1,5 @@
 .main-navbar {
-    height: 2rem;
+    height: 3rem;
     border-bottom: 1px solid rgba(128, 128, 128, 0.198);
     display: flex;
     justify-content: space-between;
@@ -9,7 +9,8 @@
 
 .main-navbar .logo-navbar {
     font-family: Hotel;
-    margin-top: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     color: rgb(245, 101, 168);
     transition: all .4s;
 }
