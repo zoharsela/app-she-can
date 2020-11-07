@@ -8,9 +8,9 @@
 }
 
 .main-navbar .logo-navbar {
+    font-size: 2rem !important;
     font-family: Hotel;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    padding-top: 1rem;
     color: rgb(245, 101, 168);
     transition: all .4s;
 }
@@ -31,7 +31,7 @@
 
 @media (min-width: 400px) {
     .main-navbar .logo-navbar {
-        font-size: 3rem;
+        font-size: 3rem !important;
         margin-left: 2rem;
     }
 }
@@ -41,6 +41,7 @@
         height: 6rem;
     }
     .main-navbar .logo-navbar {
+        padding-top: 0;
         font-size: 4rem;
         margin-left: 2rem;
     }

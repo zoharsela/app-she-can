@@ -33,7 +33,7 @@ export default {
                 subject: '',
                 body: '',
                 isRead: false,
-                sentAt: new Date().toLocaleTimeString().substring(0,4),
+                sentAt: new Date().toLocaleTimeString().substring(0, 4),
                 sentEmail: false,
                 isDraft: false,
                 isStarred: false,
@@ -48,7 +48,7 @@ export default {
             }
             this.email.sentEmail = true;
             emailService.sendEmail(this.email)
-            .then(() => eventBus.$emit('show-msg', 'Email was successfully Sent'))
+                .then(() => eventBus.$emit('show-msg', 'Email was successfully Sent'))
             this.close()
         },
         close() {

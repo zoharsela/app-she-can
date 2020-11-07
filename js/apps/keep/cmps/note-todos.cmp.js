@@ -17,7 +17,6 @@ export default {
                 </ul>
                 </section>
                 `,
-    // <button class="update-note-btn" v-if="isToEdit" @click="updateNote">Save Changes</button>
     data() {
         return {
             isToEdit: false
@@ -31,15 +30,7 @@ export default {
             return todo.isDone ? 'done' : 'not-done';
         },
         updateNote(todoIdx) {
-            // console.log(todoIdx)
-            // console.log(event.target.innerText);
             this.note.info.todos[todoIdx].txt = event.target.innerText
-            // var updatedTodo = event.target.innerText
-            // this.note.info.todo[idx] = updatedTodo
-            // var newTodos = document.querySelectorAll('.note-todos .todo')
-            // for (let i = 0; i < newTodos.length; i++) {
-            //     this.note.info.todos[i].txt = newTodos[i].innerText
-            // }
             eventBus.$emit(EVENT_UPDATE_NOTE, this.note)
             this.isToEdit = false;
         },

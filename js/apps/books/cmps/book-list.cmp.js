@@ -6,8 +6,8 @@ export default {
     template: `
         <section class="book-list">
             <book-search-add></book-search-add>
-            <ul >
-                <li v-for="book in books" :key="book.id">
+            <ul class="book-list-prev" >
+                <li class="book-list-prev" v-for="book in books" :key="book.id">
                     <book-preview :book="book" @click.native="emitSelectBook(book.id)"/>
                 </li>
             </ul>

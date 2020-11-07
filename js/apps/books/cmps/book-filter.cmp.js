@@ -8,11 +8,11 @@ export default {
           </label>
            <label>
                 Min  
-                 <input type="number" min="0" max="200" v-model.number="filterBy.fromPrice">
+                 <input class="num-input" type="number" min="0" max="200" v-model.number="filterBy.fromPrice">
          </label>
            <label>
                Max
-             <input type="number" min="0" max="200" v-model.number="filterBy.toPrice">
+             <input class="num-input" type="number" min="0" max="200" v-model.number="filterBy.toPrice">
          </label>
        </form>
    </section>
