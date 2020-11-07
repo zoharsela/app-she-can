@@ -26,7 +26,7 @@ export default {
         <div class="email-body flex">
             <p>{{email.body}}</p>
             <div class="email-details-btn flex">
-            <button @click="returnBack" class="button-reset return-btn"><i  class="fas fa-arrow-left"></i></button>
+            <button @click="returnBack" class="button-reset"><i  class="fas fa-arrow-left"></i></button>
             <button @click="deleteEmail(email.id)" class="button-reset"> <i class="fas fa-trash"></i></button>
             </div>
        
