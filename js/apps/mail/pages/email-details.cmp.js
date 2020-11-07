@@ -8,28 +8,30 @@ export default {
     template: `
     <section>
         <div class="email-app">
-    <email-filter @filtered="setFilter"></email-filter>
+    <email-filter></email-filter>
          <div class="email-app-container flex">
             <nav class="flex">
             <div class="email-app-side-container flex">
-            <button @click="newEmail" class="button-reset side-nav-link plus"><i class="fas fa-plus"></i></button>
+            <button class="button-reset side-nav-link plus"><i class="fas fa-plus"></i></button>
             <email-side-nav :emails="emails"></email-side-nav>
             </div>
             </nav> 
             <div  class="email-details-container flex">   
         <div class="email-details-subject">
             <h2>Subject: {{email.subject}}</h2>
-        </div>  
-        <div class="email-details-senderName">
+        <!-- </div>   -->
+        <!-- <div class="email-details-senderName"> -->
             <h4 class="flex">From: {{email.senderName}} <span>Sent At: {{email.sentAt}}</span></h4>
         </div>
         <div class="email-body flex">
             <p>{{email.body}}</p>
+</div>
             <div class="email-details-btn flex">
             <button @click="returnBack" class="button-reset"><i  class="fas fa-arrow-left"></i></button>
             <button @click="deleteEmail(email.id)" class="button-reset"> <i class="fas fa-trash"></i></button>
+            </div>  
             </div>
-</div>
+            </div>
         </div>
         </div>
     </section>
