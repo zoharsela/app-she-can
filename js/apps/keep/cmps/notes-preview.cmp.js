@@ -16,7 +16,6 @@ export default {
                 <button class="delete-btn" @click="deleteNote(note.id)"><i class="icon far fa-trash-alt"></i></button>
                 <button class="button-reset" @click="isToPickColor =!isToPickColor"><i class="icon fas fa-palette"></i></button>
                 <set-bgc-color v-if="isToPickColor" @color="setColor"></set-bgc-color>
-                <button class="button-reset"><i class="icon far fa-envelope"></i></button>
               </div>
               <div class="note-time">
                 <span class="note-time-created">{{timeCreation}}</span>

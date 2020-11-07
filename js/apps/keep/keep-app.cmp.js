@@ -39,6 +39,7 @@ export default {
     eventBus.$on(EVENT_TOGGLE_PIN, this.togglePin)
     eventBus.$on(EVENT_ADD_NOTE, this.addNote)
     eventBus.$on(EVENT_UPDATE_NOTE, this.updateNote)
+    eventBus.$on(EVENT_SEND_AS_MAIL, this.sendAsMail)
     eventBus.$on(EVENT_DO_TODO, (noteId, idx) => this.doTodo(noteId, idx));
   },
   methods: {
@@ -49,6 +50,9 @@ export default {
     addNote(noteToAdd) {
       keepService.addNote(noteToAdd)
         .then(() => eventBus.$emit('show-msg', 'Note was added successfully'))
+    },
+    sendAsMail() {
+
     },
     doTodo(noteId, idx) {
       keepService.getTodoDone(noteId, idx)

@@ -2,7 +2,7 @@
 export default {
     props: ['book'],
     template: `
-        <section class="book-preview">
+        <section class="book-preview" v-if="book">
             <router-link :to="'/book/' +book.id " exact>
             <img class="book-img" :src="book.imgUrl" />
            <h4>{{title}}</h4>
