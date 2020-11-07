@@ -1,7 +1,7 @@
 import { booksService } from '../services/books-service.js'
-import { eventBus } from '../services/event-bus.service.js'
+// import { eventBus } from '../../../services/event-bus.js'
 import watchReviews from '../cmps/watch-reviews.cmp.js'
-import {utilService} from '../services/util-service.js'
+import { utilService } from '../../../services/util-service.js'
 
 export default {
     template: `
@@ -26,7 +26,7 @@ export default {
         </section>
     `,
     components: {
-        watchReviews
+        watchReviews,
     },
     data() {
         return {
@@ -38,7 +38,7 @@ export default {
             isToShowReviews: false
         }
     },
-    methods: { 
+    methods: {
         addReview() {
             const { bookId } = this.$route.params
             const review = {
@@ -50,20 +50,20 @@ export default {
             }
             booksService.addReview(review, bookId)
                 .then(() => {
-                       this.$emit('update')
+                    this.$emit('update')
                 }
-            )
+                )
         }
     },
-        mounted() {
+    mounted() {
         this.$refs.nameInput.focus();
     },
-      created() {
+    created() {
         const { bookId } = this.$route.params
         if (bookId) {
             booksService.getById(bookId)
                 .then(book => this.book = JSON.parse(JSON.stringify(book)))
-            }
+        }
     },
     computed: {
     }

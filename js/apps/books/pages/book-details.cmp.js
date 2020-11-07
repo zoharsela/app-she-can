@@ -1,7 +1,7 @@
 import { booksService } from '../services/books-service.js'
-import bookReview from '../cmps/book-review.cmp.js';
+import bookReview from '../cmps/book-review.cmp.js'
 import watchReviews from '../cmps/watch-reviews.cmp.js';
-import { eventBus } from '../services/event-bus.service.js'
+import { eventBus } from '../../../services/event-bus.js'
 export default {
     name: 'book-details',
     template: `
