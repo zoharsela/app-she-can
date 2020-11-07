@@ -11,7 +11,7 @@ export default {
          <div class="email-app-container flex">
             <nav class="flex">
             <div class="email-app-side-container flex">
-            <button @click="newEmail"><i class="fas fa-plus"></i></button>
+            <button @click="newEmail" class="button-reset side-nav-link plus"><i class="fas fa-plus"></i></button>
             <email-side-nav :emails="emails"></email-side-nav>
             </div>
             </nav> 
@@ -54,7 +54,7 @@ export default {
             emailService.deleteEmail(emailId)
                 .then(() => eventBus.$emit('show-msg', 'Email was successfully Deleted'))
         },
-        returnBack(){
+        returnBack() {
             this.$router.push('/email/inbox')
         }
     },
