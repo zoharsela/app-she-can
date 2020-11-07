@@ -21,7 +21,7 @@ export default {
                     <p>Language: {{book.language}}</p>
                     <p v-if="!isToShowAll">{{textToShow}}</p>
                     <p v-if="isToShowAll">{{book.description}}</p>
-                    <button class="btn" @click="toggleDesc">{{showBtnTxt}}</button>
+                    <button class="btn" @click="toggleDesc" v-if="book.description">{{showBtnTxt}}</button>
                 </div>
                 <div class="book-img-price">
                  
