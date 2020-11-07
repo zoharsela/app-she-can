@@ -78,7 +78,7 @@ function _createEmail() {
         id: utilService.makeId(),
         senderName: 'Coursera',
         sentTo: 'Me',
-        subject: 'Recommended: Object Oriented Programming in JS',
+        subject: 'Recommended: Object Oriented JS',
         body: 'Recommendations for you',
         isRead: false,
         sentAt: 'July 28',
