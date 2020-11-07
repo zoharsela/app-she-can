@@ -17,6 +17,7 @@
 @import 'apps/email/email-details.cmp.css';
 @import 'apps/email/email-preview.cmp.css';
 @import 'apps/email/email-side-nav.cmp.css';
+@import 'apps/email/email-filter.cmp.css';
 /* SheKeep cmps */
 
 @import 'apps/keep/color-picker.cmp.css';

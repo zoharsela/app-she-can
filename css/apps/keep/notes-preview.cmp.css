@@ -16,9 +16,12 @@ section.note-list {
 }
 
 .note-li {
-    /* min-width: 17rem; */
     max-width: 18rem;
     max-height: 28rem;
+}
+
+.note-preview .fa-envelope {
+    margin-left: 5px;
 }
 
 .note-preview:hover {

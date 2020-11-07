@@ -13,12 +13,12 @@ export default {
          <div class="email-app-container flex">
             <nav class="nav-email flex">
             <div class="email-app-side-container flex">
-            <button @click="newEmail" class="button-reset"><i class="fas fa-plus"></i></button>
+            <button @click="newEmail" class="button-reset side-nav-link plus"><i class="fas fa-plus"></i></button>
             <email-side-nav class="side-nav flex"></email-side-nav>
             </div>
             </nav>
             <email-list @selected="setSelectedEmail" :emails="emailsToShow" v-if="emails" @readEmail=""></email-list>
-        <email-compose @closeCompose="newEmail" :addNewEmail="isEmailCompose"></email-compose>
+         <email-compose @closeCompose="newEmail" :addNewEmail="isEmailCompose"></email-compose>
         </div>
     </section>
   `,
