@@ -55,11 +55,9 @@ export default {
             this.$emit('closeCompose')
         },
         saveDraft() {
-            console.log(this.email.id);
             emailService.sendEmail(this.email)
             emailService.draftEmail(this.email.id)
             this.close()
         }
     }
-}
-// v-if="!isDraft" 
+} 

@@ -3,22 +3,22 @@
     width: 400px;
     margin-left: 50px;
     justify-content: center;
-    border: 1px solid rgb(34, 34, 34);
-    margin-top: 50px;
-}
-
-.email-container {
-    flex-direction: column;
-    align-self: center;
-}
-
-.email-details-container h4 {
+    border: 1px solid rgba(198, 198, 198, 0.548);
+    height: 50vh;
     justify-content: space-between;
+    padding: 10px;
+}
+
+
+.email-details-senderName h4 {
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(198, 198, 198, 0.548);
 }
 
 .email-details-container h4 span {
     color: rgb(151, 151, 151);
 }
+
 
 .email-details-btn {
     justify-content: space-between;
@@ -26,4 +26,10 @@
 
 .email-body {
     flex-direction: column;
+    border-bottom: 1px solid rgba(198, 198, 198, 0.548);
+}
+
+.email-body p{
+    margin-bottom: 60px;
+    border-bottom: 1px solid rgba(198, 198, 198, 0.548);
 }

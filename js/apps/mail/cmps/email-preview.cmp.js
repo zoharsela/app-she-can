@@ -10,16 +10,16 @@ export default {
           <div class="email-text flex">
             <i v-if="!email.isStarred" @click.stop.prevent="starClicked" class="far fa-star"></i>
             <i v-if="email.isStarred" @click.stop.prevent="starClickedRemove" class="fas fa-star"></i>
-           <h4>{{email.senderName}} | <span>{{email.subject}} | <small>{{emailText}}</small> <small>{{email.sentAt}}</small></span></h4>
+           <h4>{{email.senderName}} | <span>{{email.subject}} | <small>{{emailText}}</small></span></h4>
         </div>
            <div class="control-mail">
+           <small>{{email.sentAt}}</small>
            <button  class="button-reset email-list-btn flex" @click.stop.prevent="deleteEmail(email.id)"> <i class="fas fa-trash"></i></button>
            <button class="button-reset email-list-btn flex" @click.stop.prevent="markedEmail"><i v-if="!email.isRead" class="far fa-envelope" :class="{read: email.isRead}"></i>
            <i v-if="email.isRead" class="far fa-envelope-open"></i></button>
            </div>
         </div>
     </section>
-           <!-- </router-link> -->
     `,
     data() {
         return {
@@ -29,9 +29,6 @@ export default {
         }
     },
     methods: {
-        // open() {
-        //     this.isOpen = !this.isOpen;
-        // },
         goToEmail(){
             this.$router.push('/email/'+this.emailsCategory+'/'+this.email.id)
         },
@@ -42,8 +39,6 @@ export default {
             this.emaildeleted = true;
             emailService.deleteEmail(emailId)
                 .then(() => eventBus.$emit('show-msg', 'Email was successfully Deleted'))
-                // .then(() => eventBus.$emit('email-deleted', gEmails))
-                .catch(err => console.log('something went wrong', err))
         },
         starClicked() {
             emailService.starEmail(this.email.id)
@@ -58,11 +53,5 @@ export default {
         emailText() {
             return this.email.body.length > 50 ? this.email.body.substring(0, 49) + '...' : this.email.body;
         },
-    },
-    created(){ 
-        console.log('previewCreated', this.$route.params.emailsCategory);
     }
 }
-
-//far fa-paper-plane
-// :class="onStarClicked"

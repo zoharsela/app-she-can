@@ -1,7 +1,5 @@
-// import emailStatus from './email-status.cmp.js'
 
 export default {
-    // props: ['emails'],
     name: 'emailSideNav',
     template: `
     <section class="choose-category-header">
@@ -22,10 +20,6 @@ export default {
                 <button class="button-reset side-nav-link"><i class="fas fa-trash"></i>Deleted</button>
             </router-link>
         </div>
-        <!-- <email-status></email-status> -->
     </section>
     `,
-    // components: {
-    //     emailStatus
-    // }
 }

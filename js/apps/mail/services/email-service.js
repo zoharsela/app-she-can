@@ -4,7 +4,6 @@ const STORAGE_KEY_DELETED = 'emailsdeletedDB';
 
 var gEmails = getEmails();
 var gEmailsDelete = getEmailsDeleted();
-// var gCountUnread = 0;
 
 
 export const emailService = {
@@ -12,7 +11,6 @@ export const emailService = {
     changeToIsRead,
     deleteEmail,
     sendEmail,
-    // countEmailsRead,
     getEmailsCategory,
     starEmail,
     draftEmail
@@ -20,12 +18,10 @@ export const emailService = {
 
 function getEmails() {
     gEmails = utilService.loadFromStorage(STORAGE_KEY);
-    console.log(gEmails);
     if (!gEmails || !gEmails.length) {
         gEmails = _createEmail()
         utilService.storeToStorage(STORAGE_KEY, gEmails);
     }
-    // gCountUnread = gEmails.length;
     return gEmails;
 }
 
@@ -85,7 +81,7 @@ function _createEmail() {
         subject: 'Recommended: Object Oriented Programming in JS',
         body: 'Recommendations for you',
         isRead: false,
-        sentAt: 'Jun 28',
+        sentAt: 'July 28',
         sentEmail: false,
         isDraft: false,
         isStarred: true,
@@ -98,7 +94,7 @@ function _createEmail() {
         subject: 'You are the best!',
         body: 'We are happy to work with you!',
         isRead: false,
-        sentAt: 'May 28',
+        sentAt: 'May 15',
         sentEmail: false,
         isDraft: true,
         isStarred: true,
@@ -106,12 +102,12 @@ function _createEmail() {
     },
     {
         id: utilService.makeId(),
-        senderName: 'Itay A',
+        senderName: 'Hill B',
         sentTo: 'Me',
         subject: 'You are the best!',
         body: 'We are happy to work with you!',
         isRead: false,
-        sentAt: 'May 28',
+        sentAt: 'Jun 5',
         sentEmail: false,
         isDraft: false,
         isStarred: false,
@@ -119,12 +115,12 @@ function _createEmail() {
     },
     {
         id: utilService.makeId(),
-        senderName: 'Itay A',
+        senderName: 'Dror N',
         sentTo: 'Me',
         subject: 'You are the best!',
         body: 'We are happy to work with you!',
         isRead: false,
-        sentAt: 'May 28',
+        sentAt: 'Fab 10',
         sentEmail: false,
         isDraft: false,
         isStarred: false,
@@ -132,12 +128,12 @@ function _createEmail() {
     },
     {
         id: utilService.makeId(),
-        senderName: 'Itay A',
+        senderName: 'Ronit S',
         sentTo: 'Me',
         subject: 'You are the best!',
         body: 'We are happy to work with you!',
         isRead: false,
-        sentAt: 'May 28',
+        sentAt: 'March 17',
         sentEmail: true,
         isDraft: false,
         isStarred: false,
@@ -145,12 +141,12 @@ function _createEmail() {
     },
     {
         id: utilService.makeId(),
-        senderName: 'Itay A',
+        senderName: 'Aviv L',
         sentTo: 'Me',
         subject: 'You are the best!',
-        body: 'We are happy to work with you!',
+        body: 'I Love You!',
         isRead: false,
-        sentAt: 'May 28',
+        sentAt: 'Aug 16',
         sentEmail: false,
         isDraft: true,
         isStarred: false,
@@ -158,12 +154,12 @@ function _createEmail() {
     },
     {
         id: utilService.makeId(),
-        senderName: 'Itay A',
+        senderName: 'Or R',
         sentTo: 'Me',
         subject: 'You are the best!',
         body: 'We are happy to work with you!',
         isRead: false,
-        sentAt: 'May 28',
+        sentAt: 'Jan 18',
         sentEmail: false,
         isDraft: false,
         isStarred: false,
@@ -171,12 +167,12 @@ function _createEmail() {
     },
     {
         id: utilService.makeId(),
-        senderName: 'Itay A',
+        senderName: 'Haim M',
         sentTo: 'Me',
         subject: 'You are the best!',
         body: 'We are happy to work with you!',
         isRead: false,
-        sentAt: 'May 28',
+        sentAt: 'May 5',
         sentEmail: false,
         isDraft: false,
         isStarred: false,
@@ -184,12 +180,12 @@ function _createEmail() {
     },
     {
         id: utilService.makeId(),
-        senderName: 'Itay A',
+        senderName: 'Koby B',
         sentTo: 'Me',
-        subject: 'You are the best!',
-        body: 'We are happy to work with you!',
+        subject: 'Vote!',
+        body: 'Go Vote!',
         isRead: false,
-        sentAt: 'May 28',
+        sentAt: 'April 22',
         sentEmail: false,
         isDraft: false,
         isStarred: false,
@@ -197,12 +193,12 @@ function _createEmail() {
     },
     {
         id: utilService.makeId(),
-        senderName: 'Itay A',
+        senderName: 'Rotem S',
         sentTo: 'Me',
-        subject: 'You are the best!',
-        body: 'We are happy to work with you!',
+        subject: 'Come to Ninga!',
+        body: 'You are a great athlete!',
         isRead: false,
-        sentAt: 'May 28',
+        sentAt: 'Sep 14',
         sentEmail: false,
         isDraft: false,
         isStarred: false,
@@ -210,12 +206,12 @@ function _createEmail() {
     },
     {
         id: utilService.makeId(),
-        senderName: 'Itay A',
+        senderName: 'Ron F',
         sentTo: 'Me',
         subject: 'You are the best!',
         body: 'We are happy to work with you!',
         isRead: false,
-        sentAt: 'May 28',
+        sentAt: 'Dec 20',
         sentEmail: false,
         isDraft: false,
         isStarred: false,
@@ -223,12 +219,12 @@ function _createEmail() {
     },
     {
         id: utilService.makeId(),
-        senderName: 'Itay A',
+        senderName: 'Hila S',
         sentTo: 'Me',
         subject: 'You are the best!',
         body: 'We are happy to work with you!',
         isRead: false,
-        sentAt: 'May 28',
+        sentAt: 'Aug 8',
         sentEmail: false,
         isDraft: false,
         isStarred: false,
@@ -236,12 +232,12 @@ function _createEmail() {
     },
     {
         id: utilService.makeId(),
-        senderName: 'Itay A',
+        senderName: 'Guy S',
         sentTo: 'Me',
         subject: 'You are the best!',
         body: 'We are happy to work with you!',
         isRead: false,
-        sentAt: 'May 28',
+        sentAt: 'Aug 6',
         sentEmail: false,
         isDraft: false,
         isStarred: false,
@@ -249,12 +245,12 @@ function _createEmail() {
     },
     {
         id: utilService.makeId(),
-        senderName: 'Itay A',
+        senderName: 'Yarden S',
         sentTo: 'Me',
         subject: 'You are the best!',
         body: 'We are happy to work with you!',
         isRead: false,
-        sentAt: 'May 28',
+        sentAt: 'Dec 12',
         sentEmail: false,
         isDraft: false,
         isStarred: false,
@@ -270,7 +266,6 @@ function getEmailById(emailId) {
 
 
 function changeToIsRead(emailId) {
-    console.log(emailId);
     const emailIsRead = gEmails.find(email => {
         return email.id === emailId
     })
@@ -279,7 +274,6 @@ function changeToIsRead(emailId) {
 }
 
 function draftEmail(emailId){
-    console.log(emailId);
     var email = gEmails.find(email => email.id === emailId);
     email.isDraft = true;
     utilService.storeToStorage(STORAGE_KEY, gEmails);
@@ -310,44 +304,31 @@ function starEmail(emailId){
 }
 
 function getEmailsCategory(emailsCategory){
-    console.log(emailsCategory);
     if(emailsCategory === 'inbox') {
         let inbox = gEmails.filter(email => {
-            return (!email.isDraft)
+            return (!email.isDraft && !email.isDeleted)
         })
         return Promise.resolve(inbox);
     }
     if(emailsCategory === 'sent'){
         let sent = gEmails.filter(email => {
-            return email.sentEmail
+            return (email.sentEmail && !email.isDeleted)
         })
         return Promise.resolve(sent);
     }
     if(emailsCategory === 'draft'){
         let draft = gEmails.filter(email => {
-            return email.isDraft
+            return (email.isDraft && !email.isDeleted)
         })
         return Promise.resolve(draft);
     }
     if(emailsCategory === 'star'){
         let star = gEmails.filter(email => {
-            return email.isStarred
+            return (email.isStarred && !email.isDeleted)
         })
         return Promise.resolve(star);
     }
     if(emailsCategory === 'deleted'){
-        console.log(gEmailsDelete);
         return Promise.resolve(gEmailsDelete);
     }
 }
-
-// function countEmailsRead(){
-//     let unreadEmails = gEmails.filter(email => {
-//         return (!email.isRead && !email.sentEmail)
-//     })
-//     if(unreadEmails.length){
-//         return `You have ${unreadEmails.length} unread emails`;
-//     } else {
-//         return 'No unreads emails'
-//     }
-// }

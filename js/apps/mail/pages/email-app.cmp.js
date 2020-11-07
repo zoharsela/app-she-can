@@ -32,7 +32,6 @@ export default {
     };
   },
   created() {
-    console.log( 'created', this.emailsCategory);
     this.isEmailCompose = false;
     emailService.getEmailsCategory(this.emailsCategory)
       .then((emails) => (this.emails = emails));
@@ -40,9 +39,7 @@ export default {
   watch: {
       "$route.params.emailsCategory"() {
           this.emailsCategory = this.$route.params.emailsCategory;
-          console.log('watchEmailsCategory', this.emailsCategory);
       emailService.getEmailsCategory(this.emailsCategory).then((emails) => {
-        console.log('watchedEmails', emails);
         this.emails = emails;
       });
     },
@@ -56,7 +53,7 @@ export default {
     },
     newEmail() {
       this.isEmailCompose = !this.isEmailCompose;
-    },
+    }
   },
   computed: {
     emailsToShow() {
