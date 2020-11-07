@@ -67,4 +67,7 @@
     .add-input:last-of-type {
         width: 18rem;
     }
+    .add-input {
+        margin-bottom: 0;
+    }
 }

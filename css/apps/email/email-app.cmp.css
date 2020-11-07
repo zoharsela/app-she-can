@@ -1,44 +1,9 @@
-
-.nav-email {
-    margin-left: 10px;
-    justify-content: space-evenly;
+.email-app {
+    padding-top: 2rem;
 }
 
 .email-app-container {
     margin-top: 10px;
-}
-
-.email-app-side-container {
-    flex-direction: column;
-    width: max-content;
-}
-
-.side-nav {
-    height: 80vh;
-}
-
-.email-line:hover {
-    cursor: pointer;
-}
-
-.email-filter {
-    display: flex;
-    height: 30px;
-    margin-left: 50px;
-    margin-top: 5px;
-}
-
-.email-filter input {
-    width: 650px;
-    background-color: rgba(192, 192, 192, 0.1);
-    border-radius: 5px;
-    border: none;
-}
-
-.email-filter select {
-    background-color: rgba(192, 192, 192, 0.1);
-    border-radius: 5px;
-    border: none;
 }
 
 .email-list-container {
@@ -46,22 +11,9 @@
     background-color: rgb(243, 243, 243);
     width: 100%;
     margin-left: 50px;
-    height: 80vh;
+    border-radius: 9px;
+    height: 70vh;
     overflow: auto;
-}
-
-.email-list-container ul li {
-    height: 55px;
-    border-top: 1px solid rgb(236, 236, 236);
-    border-bottom: 1px solid rgb(236, 236, 236);
-}
-
-.email-list-container ul li:hover {
-    background-color: rgb(235, 233, 233);
-}
-
-.email-list-container ul li h4 {
-    margin-left: 20px;
 }
 
 .checkbox {
