@@ -18,13 +18,14 @@ const myRoutes = [
         component: aboutPage
     },
     {
-        path: '/email/:emailsCategory',
-        component: emailApp
-    },
-    {
         path: '/email/:emailsCategory/:emailId',
         component: emailDetails
     },
+    {
+        path: '/email/:emailsCategory',
+        component: emailApp        
+    },
+   
     {
         path: '/keep',
         component: keepApp,

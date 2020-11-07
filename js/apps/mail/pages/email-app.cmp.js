@@ -32,18 +32,17 @@ export default {
     };
   },
   created() {
-    console.log(this.emailsCategory);
+    console.log( 'created', this.emailsCategory);
     this.isEmailCompose = false;
-    emailService
-      .getEmailsCategory(this.emailsCategory)
+    emailService.getEmailsCategory(this.emailsCategory)
       .then((emails) => (this.emails = emails));
   },
   watch: {
       "$route.params.emailsCategory"() {
           this.emailsCategory = this.$route.params.emailsCategory;
-          console.log(this.emailsCategory);
+          console.log('watchEmailsCategory', this.emailsCategory);
       emailService.getEmailsCategory(this.emailsCategory).then((emails) => {
-        console.log(emails);
+        console.log('watchedEmails', emails);
         this.emails = emails;
       });
     },
@@ -70,14 +69,11 @@ export default {
         } else if (currFilter === "byRead") {
           currFilter = true;
         } else currFilter = false;
-        return (
-            email.isRead === currFilter ||
-          email.subject.toLowerCase().includes(txt) ||
+        return (email.subject.toLowerCase().includes(txt) ||
           email.senderName.toLowerCase().includes(txt) ||
-          (email.body.toLowerCase().includes(txt) &&
-            email.isRead === currFilter)
-        );
-      });
+          email.body.toLowerCase().includes(txt))&&
+            email.isRead === currFilter
+    });
     },
   },
   components: {

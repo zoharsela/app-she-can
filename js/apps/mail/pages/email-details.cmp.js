@@ -7,7 +7,7 @@ export default {
     name: 'emailDetails',
     template: `
     <section>
-    <email-filter @filtered="setFilter"></email-filter>
+    <!-- <email-filter @filtered="setFilter"></email-filter> -->
          <div class="email-app-container flex">
             <nav class="flex">
             <div class="email-app-side-container flex">
@@ -60,6 +60,7 @@ export default {
     },
     created() {
         this.getEmail()
+        console.log('11');
     },
     components: {
         emailFilter,

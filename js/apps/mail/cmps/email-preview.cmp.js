@@ -4,8 +4,8 @@ export default {
     props: ['email'],
     name: 'emailPreview',
     template: `
-            <router-link to="'/email/'+emailsCategory+'/'+email.id" exact @click.stop="open">
-    <section class="email-preview">
+            
+    <section class="email-preview" @click.stop="goToEmail">
         <div class="email-line flex" :class="{read: email.isRead}" v-if="!emaildeleted">
             <i v-if="!email.isStarred" @click.stop.prevent="starClicked" class="far fa-star"></i>
             <i v-if="email.isStarred" @click.stop.prevent="starClickedRemove" class="fas fa-star"></i>
@@ -15,7 +15,7 @@ export default {
            <i v-if="email.isRead" class="far fa-envelope-open"></i></button>
         </div>
     </section>
-           </router-link>
+           <!-- </router-link> -->
     `,
     data() {
         return {
@@ -25,8 +25,11 @@ export default {
         }
     },
     methods: {
-        open() {
-            this.isOpen = !this.isOpen;
+        // open() {
+        //     this.isOpen = !this.isOpen;
+        // },
+        goToEmail(){
+            this.$router.push('/email/'+this.emailsCategory+'/'+this.email.id)
         },
         markedEmail() {
             emailService.changeToIsRead(this.email.id)
@@ -35,6 +38,7 @@ export default {
             this.emaildeleted = true;
             emailService.deleteEmail(emailId)
                 .then(() => eventBus.$emit('show-msg', 'Email was successfully Deleted'))
+                // .then(() => eventBus.$emit('email-deleted', gEmails))
                 .catch(err => console.log('something went wrong', err))
         },
         starClicked() {
@@ -50,6 +54,9 @@ export default {
         emailText() {
             return this.email.body.length > 50 ? this.email.body.substring(0, 49) + '...' : this.email.body;
         },
+    },
+    created(){ 
+        console.log('previewCreated', this.$route.params.emailsCategory);
     }
 }
 
