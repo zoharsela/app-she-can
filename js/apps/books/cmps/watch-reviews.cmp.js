@@ -1,5 +1,5 @@
 import { booksService } from '../services/books-service.js'
-import { eventBus } from '../services/event-bus.service.js'
+import { eventBus } from '../../../services/event-bus.js'
 
 export default {
     props: ['reviews'],
@@ -14,7 +14,7 @@ export default {
             </div>
         </section>
     `,
-    data() { 
+    data() {
         return {
             book: '',
             bookReviews: this.reviews
@@ -22,8 +22,8 @@ export default {
     },
     created() {
     },
-    methods: { 
-          emitDelete(id){
+    methods: {
+        emitDelete(id) {
             this.$emit('delete', id)
         }
     },
