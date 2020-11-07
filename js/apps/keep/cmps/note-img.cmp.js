@@ -1,5 +1,4 @@
 export default {
-    // name: 'note-img',
     props: ['note'],
     template: `
         <section class="note-img">

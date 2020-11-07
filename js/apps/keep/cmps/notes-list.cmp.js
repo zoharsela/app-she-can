@@ -1,5 +1,4 @@
 import notesPreview from './notes-preview.cmp.js'
-// import { keepService } from '../services/keep-service.js'
 
 export default {
   props: ['notes'],
