@@ -7,6 +7,7 @@ export default {
     name: 'emailDetails',
     template: `
     <section>
+        <div class="email-app">
     <email-filter @filtered="setFilter"></email-filter>
          <div class="email-app-container flex">
             <nav class="flex">
@@ -28,7 +29,7 @@ export default {
             <button @click="returnBack" class="button-reset"><i  class="fas fa-arrow-left"></i></button>
             <button @click="deleteEmail(email.id)" class="button-reset"> <i class="fas fa-trash"></i></button>
             </div>
-       
+</div>
         </div>
         </div>
     </section>
