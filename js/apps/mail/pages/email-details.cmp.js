@@ -13,14 +13,12 @@ export default {
             <nav class="flex">
             <div class="email-app-side-container flex">
             <button class="button-reset side-nav-link plus"><i class="fas fa-plus"></i></button>
-            <email-side-nav :emails="emails"></email-side-nav>
+            <email-side-nav></email-side-nav>
             </div>
             </nav> 
             <div  class="email-details-container flex">   
         <div class="email-details-subject">
             <h2>Subject: {{email.subject}}</h2>
-        <!-- </div>   -->
-        <!-- <div class="email-details-senderName"> -->
             <h4 class="flex">From: {{email.senderName}} <span>Sent At: {{email.sentAt}}</span></h4>
         </div>
         <div class="email-body flex">
