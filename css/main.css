@@ -25,6 +25,11 @@
 @import 'apps/keep/notes-preview.cmp.css';
 @import 'apps/keep/add-note.cmp.css';
 @import 'apps/keep/edit-note.cmp.css';
+/* SheReads cmp */
+
+@import 'apps/books/book-details.cmp.css';
+@import 'apps/books/book-list.cmp.css';
+@import 'apps/books/book-search-add.cmp.css';
 /* general, temporary, fonts are not decided yet but will be nicer to watch */
 
 * {

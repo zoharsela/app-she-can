@@ -4,7 +4,7 @@ import bookFilter from '../cmps/book-filter.cmp.js';
 
 export default {
     template: ` 
-        <section>
+        <section class="container">
            <book-filter @filtered="setFilter"/>
            <book-list :books="booksToShow"/>
         </section>

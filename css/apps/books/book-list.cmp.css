@@ -1,0 +1,45 @@
+.book-list ul.book-list-prev {
+    margin: 0 auto;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.book-list li.book-list-prev {
+    background-color: rgba(250, 250, 250, 0.938);
+    list-style-type: none;
+    height: 18rem;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 25px;
+}
+
+.book-preview {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.book-preview h5 {
+    justify-self: flex-end;
+}
+
+.book-img {
+    width: 130px;
+    height: 200px;
+    object-fit: contain;
+    filter: grayscale(90%);
+}
+
+.book-list {
+    background-color: rgba(240, 216, 229, 0.507);
+    margin: 10px auto;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}

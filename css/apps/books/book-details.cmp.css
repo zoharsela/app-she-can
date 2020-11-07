@@ -1,0 +1,178 @@
+.high-price {
+    color: red;
+}
+
+.low-price {
+    color: green;
+}
+
+.book-details {
+    background-color: rgba(240, 216, 229, 0.507);
+    margin: 10px auto;
+    padding: 20px;
+    padding-top: 30px;
+    border-radius: 10px;
+    text-align: start;
+    font-size: 1.2rem;
+}
+
+.book-details-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.33);
+}
+
+.book-txt-details {
+    width: 50%;
+    padding-right: 50px;
+}
+
+div.book-img-price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5rem;
+    justify-content: space-between;
+}
+
+button.return-btn {
+    height: 40px;
+    border: none;
+    width: 70vw;
+    background-color: rgba(50, 50, 50, 0.676);
+    outline: none;
+    margin-bottom: 40px;
+    border-radius: 7px;
+    font-family: Roboto;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.book-details-img {
+    border: 2px solid gray;
+    border-radius: 5px;
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    opacity: 70%;
+    background-color: black;
+    filter: grayscale(90%);
+    transition: all .4s;
+}
+
+.book-details-img:hover {
+    filter: grayscale(0%);
+    opacity: 100%;
+}
+
+.book-review input {
+    padding: 0.3rem;
+    height: 1.8rem;
+    font-family: dosis;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    border: none;
+    outline: none;
+    margin-bottom: 0.5rem;
+}
+
+.book-review {
+    padding-top: 2rem;
+}
+
+.btn {
+    display: block;
+    margin: 0 auto;
+    min-width: 15%;
+    max-width: 20%;
+    font-size: 1rem;
+    padding: 3px;
+    color: gray;
+    font-family: dosis;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid rgba(128, 128, 128, 0.289);
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .btn {
+        max-width: 50%;
+    }
+    .book-details {
+        font-size: 1rem;
+    }
+}
+
+.arrow-btn {
+    margin: 0;
+    font-size: 4rem;
+    cursor: pointer;
+}
+
+.arrow-right {
+    float: right;
+}
+
+.review {
+    overflow: auto;
+    text-align: center;
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid rgba(128, 128, 128, 0.467);
+    width: 30%;
+    background-color: rgba(255, 255, 255, 0.693);
+}
+
+.delete-btn {
+    color: black;
+}
+
+.book-review textarea {
+    border: none;
+}
+
+.watch-reviews {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.book-review .review-label {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+/* stars */
+
+.rating {
+    border: none;
+    display: inline-block;
+    letter-spacing: none;
+}
+
+.rating>input {
+    display: none;
+}
+
+.rating>label:before {
+    margin: 1px;
+    font-family: "Font Awesome 5 Free";
+    font-size: 0.9em;
+    display: inline-block;
+    content: "\f005";
+}
+
+.rating>label {
+    color: rgb(254, 254, 254);
+    float: right;
+    font-weight: 600;
+}
+
+.rating>input:checked~label, .rating:not(:checked)>label:hover, .rating:not(:checked)>label:hover~label {
+    color: #ffcc00;
+}

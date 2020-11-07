@@ -1,5 +1,4 @@
 import { booksService } from '../services/books-service.js'
-// import { eventBus } from '../../../services/event-bus.js'
 import watchReviews from '../cmps/watch-reviews.cmp.js'
 import { utilService } from '../../../services/util-service.js'
 
@@ -7,7 +6,7 @@ export default {
     template: `
         <section class="book-review">
             <form>
-                <label>
+                <label class="review-label">
                     <h2>Leave a review</h2>
                     <div>
                       <fieldset class="rating">

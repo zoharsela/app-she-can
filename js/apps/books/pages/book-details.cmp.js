@@ -6,7 +6,7 @@ export default {
     name: 'book-details',
     template: `
         <section class="book-details" v-if="book">
-           <router-link to="/book" class="back-btn btn">Back to shop</router-link>
+           <router-link to="/book" class="btn">Back to shop</router-link>
             <span class="arrow-btn" @click="getNegBook(-1)">←</span>
             <span class="arrow-btn arrow-right" @click="getNegBook(1)">→</span>
             <div class="book-details-flex">
